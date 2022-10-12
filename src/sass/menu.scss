@@ -15,6 +15,12 @@ nav {
 			text-decoration: none;
 		}
 	}
+	li.current-menu-item {
+		a {
+			color: #000;
+			text-decoration: none;
+		}
+	}
 }
 
 #toggle-menu {

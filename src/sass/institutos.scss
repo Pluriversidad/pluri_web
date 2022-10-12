@@ -12,11 +12,14 @@
 	padding: 12px;
 	border: 1px solid white;
 	margin: 6px 6px 6px 0;
-	height: 120px;
+	height: auto;
 	text-decoration: underline;
 	@include respond-to("small-device") {
 		height: auto;
 		padding: 0;
+	}
+	@include respond-to("large-device") {
+		height: 120px;
 	}
 	h2 {
 		font-size: 22px;
