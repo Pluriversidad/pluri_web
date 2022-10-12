@@ -90,7 +90,10 @@ main {
 .site-footer {
 	text-align: left;
 	font-size: 16px;
-	padding: 24px;
+	padding: 24px 120px;
+	@include respond-to("small-device") {
+		padding: 24px;
+	}
 }
 
 #carbon {
