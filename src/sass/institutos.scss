@@ -30,6 +30,9 @@
 	&.current {
 		border-color: blue;
 		text-decoration: none;
+		@include respond-to("small-device") {
+			padding: 12px;
+		}
 	}
 
 	&.current {
@@ -37,5 +40,8 @@
 		cursor: default;
 		text-decoration: none;
 		color: black;
+		@include respond-to("small-device") {
+			padding: 12px;
+		}
 	}
 }

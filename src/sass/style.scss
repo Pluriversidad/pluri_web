@@ -14,6 +14,7 @@ $max_width: 1200px;
 $min_font: 16px;
 $max_font: 24px;
 
+$horizontal_padding: 220px;
 html {
 	@include fluid-type($min_width, $max_width, $min_font, $max_font);
 }
@@ -29,7 +30,7 @@ strong {
 @import "headings.scss";
 
 header.site-header {
-	padding: 24px 120px;
+	padding: 24px $horizontal_padding;
 	position: relative;
 	@include respond-to("small-device") {
 		padding: 24px;
@@ -53,7 +54,7 @@ header.site-header {
 }
 
 main {
-	padding: 120px;
+	padding: 120px $horizontal_padding;
 	//max-width: 1200px;
 	@include respond-to("small-device") {
 		padding: 24px;
@@ -90,7 +91,7 @@ main {
 .site-footer {
 	text-align: left;
 	font-size: 16px;
-	padding: 24px 120px;
+	padding: 24px $horizontal_padding;
 	@include respond-to("small-device") {
 		padding: 24px;
 	}
