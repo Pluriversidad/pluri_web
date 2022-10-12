@@ -1,0 +1,490 @@
+/*!**************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/style.scss ***!
+  \**************************************************************************************************************/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* WordPress Core
+-------------------------------------------------------------- */
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  max-width: 96%; /* Image does not overflow the content area */
+  padding: 5px 3px 10px;
+  text-align: center;
+}
+
+.wp-caption.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+  margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin: 0;
+  max-width: 98.5%;
+  padding: 0;
+  width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #eee;
+  clip: auto !important;
+  clip-path: none;
+  color: #444;
+  display: block;
+  font-size: 1em;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+.nav-institutos {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 767px) {
+  .nav-institutos {
+    flex-wrap: wrap;
+  }
+}
+
+.instituto {
+  padding: 12px;
+  border: 1px solid white;
+  margin: 6px 6px 6px 0;
+  height: 120px;
+  text-decoration: underline;
+}
+@media (max-width: 767px) {
+  .instituto {
+    height: auto;
+    padding: 0;
+  }
+}
+.instituto h2 {
+  font-size: 22px;
+  line-height: 1.4em;
+}
+@media (max-width: 767px) {
+  .instituto {
+    width: 100%;
+    margin: 6px 0;
+  }
+}
+.instituto:hover, .instituto.current {
+  border-color: blue;
+  text-decoration: none;
+}
+.instituto.current {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: black;
+}
+
+nav {
+  background-color: white;
+  padding: 12px 0;
+  margin-bottom: 24px;
+}
+nav li {
+  margin-bottom: 12px;
+}
+nav li ul {
+  margin-left: 16px;
+  margin-top: 12px;
+}
+nav a {
+  color: blue;
+}
+nav a:hover {
+  text-decoration: none;
+}
+
+#toggle-menu:hover {
+  text-decoration: none;
+}
+
+.event-data {
+  padding: 24px 0;
+}
+
+h1.archive-title {
+  margin-bottom: 2em;
+}
+
+h2.archive-entry-title {
+  font-size: 28px;
+}
+h2.archive-entry-title a:hover {
+  text-decoration: none;
+}
+
+html {
+  font-size: 16px;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(
+          16px + 8 *
+            ((100vw - 320px) / 880)
+        );
+  }
+}
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 24px;
+  }
+}
+
+body {
+  font-family: sans-serif;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.0736rem;
+  margin-bottom: 24px;
+}
+h1 {
+  font-size: 27.648px;
+}
+@media screen and (min-width: 320px) {
+  h1 {
+    font-size: calc(
+          27.648px + 26.352 *
+            ((100vw - 320px) / 880)
+        );
+  }
+}
+@media screen and (min-width: 1200px) {
+  h1 {
+    font-size: 54px;
+  }
+}
+
+h2 {
+  font-size: 1.728rem;
+  margin-bottom: 18px;
+}
+h2 {
+  font-size: 27.648px;
+}
+@media screen and (min-width: 320px) {
+  h2 {
+    font-size: calc(
+          27.648px + 26.352 *
+            ((100vw - 320px) / 880)
+        );
+  }
+}
+@media screen and (min-width: 1200px) {
+  h2 {
+    font-size: 54px;
+  }
+}
+
+h3 {
+  font-size: 1.44rem;
+  margin-bottom: 14px;
+}
+h3 {
+  font-size: 23.04px;
+}
+@media screen and (min-width: 320px) {
+  h3 {
+    font-size: calc(
+          23.04px + 12.96 *
+            ((100vw - 320px) / 880)
+        );
+  }
+}
+@media screen and (min-width: 1200px) {
+  h3 {
+    font-size: 36px;
+  }
+}
+
+header.site-header {
+  padding: 24px 120px;
+  position: relative;
+}
+@media (max-width: 767px) {
+  header.site-header {
+    padding: 24px;
+  }
+}
+header.site-header h1.site-title {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+header.site-header #carbon {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  font-size: 14px;
+}
+
+#toggle-menu {
+  margin-bottom: 24px;
+  display: block;
+}
+
+main {
+  padding: 120px;
+}
+@media (max-width: 767px) {
+  main {
+    padding: 24px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.entry-info {
+  margin-bottom: 12px;
+}
+
+.entry-header {
+  margin-bottom: 36px;
+}
+.entry-header h1 {
+  margin-bottom: 0;
+}
+
+.entry-content {
+  line-height: 1.4em;
+}
+.entry-content a:hover {
+  text-decoration: none;
+}
+.entry-content img {
+  margin: 12px 0;
+}
+
+.site-footer {
+  text-align: left;
+  font-size: 16px;
+  padding: 24px;
+}
+
+#carbon {
+  color: #ccc;
+}
+
+/*# sourceMappingURL=frontend.css.map*/

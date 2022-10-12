@@ -1,0 +1,12 @@
+h1.archive-title {
+	margin-bottom: 2em;
+}
+
+h2.archive-entry-title {
+	font-size: 28px;
+	a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

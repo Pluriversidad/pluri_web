@@ -1,0 +1,98 @@
+//Sass Base CSS
+
+@import "reset.scss";
+@import "./mixins/typography_scale.scss";
+@import "./mixins/breakpoints.scss";
+@import "wp.scss";
+@import "institutos.scss";
+@import "menu.scss";
+@import "agenda.scss";
+@import "archive.scss";
+
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 16px;
+$max_font: 24px;
+
+html {
+	@include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+body {
+	font-family: sans-serif;
+}
+
+strong {
+	font-weight: bold;
+}
+
+@import "headings.scss";
+
+header.site-header {
+	padding: 24px 120px;
+	position: relative;
+	@include respond-to("small-device") {
+		padding: 24px;
+	}
+	h1.site-title {
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+
+	#carbon {
+		position: absolute;
+		right: 24px;
+		top: 24px;
+		font-size: 14px;
+	}
+}
+
+#toggle-menu {
+	margin-bottom: 24px;
+	display: block;
+}
+
+main {
+	padding: 120px;
+	//max-width: 1200px;
+	@include respond-to("small-device") {
+		padding: 24px;
+	}
+}
+
+.hidden {
+	display: none;
+}
+
+.entry-info {
+	margin-bottom: 12px;
+}
+
+.entry-header {
+	h1 {
+		margin-bottom: 0;
+	}
+	margin-bottom: 36px;
+}
+
+.entry-content {
+	line-height: 1.4em;
+	a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	img {
+		margin: 12px 0;
+	}
+}
+
+.site-footer {
+	text-align: left;
+	font-size: 16px;
+	padding: 24px;
+}
+
+#carbon {
+	color: #ccc;
+}
