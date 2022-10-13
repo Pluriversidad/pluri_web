@@ -3,8 +3,45 @@ h1.archive-title {
 }
 
 h2.archive-entry-title {
-	font-size: 28px;
+	font-size: 44px;
+	@include respond-to("small-device") {
+		font-size: 28px;
+	}
 	a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+article.archive-item {
+	padding: 48px 0;
+	@include respond-to("small-device") {
+		padding: 24px 0;
+	}
+
+	&.with-image {
+		display: flex;
+		img {
+			margin-right: 24px;
+		}
+
+		@include respond-to("small-device") {
+			display: block;
+			img {
+				width: 100%;
+				height: auto;
+				margin: 0 0 12px 0;
+			}
+		}
+	}
+
+	.excerpt {
+		line-height: 1.4em;
+		margin-bottom: 12px;
+	}
+
+	a.archive-item-link {
 		&:hover {
 			text-decoration: none;
 		}

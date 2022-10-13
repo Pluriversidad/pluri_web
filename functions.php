@@ -19,3 +19,16 @@ register_nav_menus(
 		'principal' => esc_html__( 'Principal', 'pluri_landing' ),
 	)
 );
+
+add_filter( 'get_the_archive_title', function ( $title ) {
+	global $post;
+
+    if( is_post_type_archive() ) {
+    	$ptypeobj = get_post_type_object(get_post_type( $post->ID ));
+        $title = $ptypeobj->labels->name;
+
+    }
+
+    return $title;
+
+});

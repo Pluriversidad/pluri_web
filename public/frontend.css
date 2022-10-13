@@ -336,6 +336,7 @@ nav li.current-menu-item a {
 
 .event-data {
   padding: 24px 0;
+  line-height: 1.4em;
 }
 
 h1.archive-title {
@@ -343,9 +344,46 @@ h1.archive-title {
 }
 
 h2.archive-entry-title {
-  font-size: 28px;
+  font-size: 44px;
+}
+@media (max-width: 767px) {
+  h2.archive-entry-title {
+    font-size: 28px;
+  }
 }
 h2.archive-entry-title a:hover {
+  text-decoration: none;
+}
+
+article.archive-item {
+  padding: 48px 0;
+}
+@media (max-width: 767px) {
+  article.archive-item {
+    padding: 24px 0;
+  }
+}
+article.archive-item.with-image {
+  display: flex;
+}
+article.archive-item.with-image img {
+  margin-right: 24px;
+}
+@media (max-width: 767px) {
+  article.archive-item.with-image {
+    display: block;
+  }
+  article.archive-item.with-image img {
+    width: 100%;
+    height: auto;
+    margin: 0 0 12px 0;
+  }
+}
+article.archive-item .excerpt {
+  line-height: 1.4em;
+  margin-bottom: 12px;
+}
+article.archive-item a.archive-item-link:hover {
   text-decoration: none;
 }
 
@@ -508,7 +546,7 @@ main {
 }
 
 #carbon {
-  color: #ccc;
+  color: #000;
 }
 
 /*# sourceMappingURL=frontend.css.map*/
