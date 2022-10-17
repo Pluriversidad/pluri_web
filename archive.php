@@ -69,7 +69,16 @@
 			
 			</div>
 			<?php
-		endif;
+			else:?>
+
+				<div class="archive-items-wrapper">
+					<article class="no-content">
+						<h2 class="archive-entry-title">Esta sección aún no tiene contenido</h2>
+					</article>
+				</div>
+
+			<?php 
+			endif;
 			?>
 </main>
 <?php get_footer();?>
