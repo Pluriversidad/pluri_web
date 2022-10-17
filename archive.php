@@ -2,10 +2,14 @@
 <main id="primary" class="site-main">
 	<h1 class="archive-title"><?php the_archive_title( );?></h1>
 	<?php
-		if ( have_posts() ) :
+		if ( have_posts() ) :?>
+
+			<div class="archive-items-wrapper">
+
+			<?php
 
 			while ( have_posts() ) :?>
-				<article class="archive-item <?php echo (has_post_thumbnail()? 'with-image' : 'no-image');?>">
+				<article class="archive-item <?php echo 'archive-item-' . get_post_type();?> <?php echo (has_post_thumbnail()? 'with-image' : 'no-image');?>">
 				<?php
 				the_post();
 
@@ -15,7 +19,7 @@
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
 				?>
-				<?php if(has_post_thumbnail(  )):?>
+				<?php if(has_post_thumbnail(  ) && get_post_type() != 'calendario'):?>
 
 					<div class="archive-post-thumbnail">
 						<a href="<?php the_permalink();?>"><?php the_post_thumbnail('thumbnail');?></a>
@@ -23,9 +27,21 @@
 
 				<?php endif;?>
 
+				<?php if(!has_post_thumbnail() && get_post_type() == 'red_y_consejo'):?>
+
+					<a href="<?php the_permalink();?>" class="placeholder-thumbnail">
+						
+					</a>
+
+				<?php endif;?>
+
 				<div class="archive-entry-content">
 					<h2 class="archive-entry-title">
-						<a href="<?php the_permalink();?>"><?php the_title();?></a>
+						<?php if(get_post_type() != 'red_y_consejo'):?>
+							<a href="<?php the_permalink();?>"><?php the_title();?></a>
+						<?php else:?>
+							<?php the_title();?>
+						<?php endif;?>
 					</h2>
 
 					<div class="excerpt">
@@ -42,16 +58,16 @@
 
 				?>
 
-				<a class="archive-item-link" href="<?php the_permalink();?>">Link</a>
+				
 
 				</div>
-
+				</article>
 				<?php
 
 			endwhile;?>
 
-			</article>
-
+			
+			</div>
 			<?php
 		endif;
 			?>

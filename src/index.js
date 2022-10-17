@@ -12,7 +12,9 @@ const assetWeight = assetData.assets.map((asset) => {
 pageSize += document.getElementsByTagName("html")[0].outerHTML.length;
 
 //count images
-pageSize += document.getElementsByTagName("img").length * 140000;
+pageSize += document.getElementsByTagName("figure").length * 140000;
+//count thumbnails
+pageSize += document.querySelectorAll(".size-thumbnail").length * 10000;
 
 let pageCarbon = round(swd.perByte(pageSize), 4);
 const carbonContainer = document.getElementById("carbon");
