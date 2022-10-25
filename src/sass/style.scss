@@ -3,59 +3,86 @@
 @import "reset.scss";
 @import "./mixins/typography_scale.scss";
 @import "./mixins/breakpoints.scss";
-@import "wp.scss";
-@import "institutos.scss";
-@import "menu.scss";
-@import "agenda.scss";
-@import "archive.scss";
 
 $min_width: 320px;
 $max_width: 1200px;
 $min_font: 16px;
 $max_font: 24px;
 
-$horizontal_padding: 220px;
+$header_height: 115px;
+$mobile_header_height: 80px;
+
+$large_sidebar_width: 15%;
+$medium_sidebar_width: 30%;
+$sidebar_width: 30%;
+
+
+//Borde general de la web en escritorio
+$horizontal_padding: 60px;
+$mobile_horizontal_padding: 24px;
+$large_horizontal_padding: 120px;
+
+
+
+
+
+
+
+//Reset tipográfico
+:root {
+	--system-ui: "Calibri", "Roboto", "Helvetica", system-ui, "Arial",
+		"Liberation Sans", sans-serif;
+}
+
 html {
 	@include fluid-type($min_width, $max_width, $min_font, $max_font);
 }
 
+//Font-stack genérico
 body {
-	font-family: sans-serif;
+	font-family: var(--system-ui);
 }
 
+//Por alguna razón el strong no cambia el peso en este stack tipográfico
 strong {
 	font-weight: bold;
 }
 
+//Títulos de todo el sitio
 @import "headings.scss";
 
-header.site-header {
-	padding: 24px $horizontal_padding;
-	position: relative;
-	@include respond-to("small-device") {
-		padding: 24px;
-	}
-	h1.site-title {
-		font-weight: 600;
-		text-transform: uppercase;
-	}
+//Estilos necesarios para WordPress
+@import "wp.scss";
 
-	#carbon {
-		position: absolute;
-		right: 24px;
-		top: 24px;
-		font-size: 14px;
-	}
-}
+//Layout básico
+@import "header.scss";
+@import "menu.scss";
+@import "content.scss";
 
-#toggle-menu {
-	margin-bottom: 24px;
-	display: block;
-}
+//Páginas de archivo
+@import "archive.scss";
 
+//Secciones y tipos de contenido
+@import "institutos.scss";
+@import "agenda.scss";
+
+//Cosas aún sin clasificar
 main {
 	padding: 120px $horizontal_padding;
 	//max-width: 1200px;
+	@include respond-to("small-device") {
+		padding: 24px $mobile_horizontal_padding;
+	}
+
+	&.with-institutos-nav {
+		padding: 120px calc($horizontal_padding + 24px + $sidebar_width) 120px $horizontal_padding;
+	}
+}
+
+
+
+.home main {
+	padding: 0;
 	@include respond-to("small-device") {
 		padding: 24px;
 	}
@@ -63,29 +90,6 @@ main {
 
 .hidden {
 	display: none;
-}
-
-.entry-info {
-	margin-bottom: 12px;
-}
-
-.entry-header {
-	h1 {
-		margin-bottom: 0;
-	}
-	margin-bottom: 36px;
-}
-
-.entry-content {
-	line-height: 1.4em;
-	a {
-		&:hover {
-			text-decoration: none;
-		}
-	}
-	img {
-		margin: 12px 0;
-	}
 }
 
 .site-footer {
@@ -97,14 +101,10 @@ main {
 	}
 }
 
-#carbon {
-	color: #000;
-}
-
 .enconstruccion {
-	position: fixed; 
+	position: fixed;
 	background-color: rgba(255, 255, 255, 0.8);
-	right: 0; 
+	right: 0;
 	bottom: 0;
 	padding: 6px;
 	font-size: 12px;

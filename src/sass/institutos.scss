@@ -1,41 +1,53 @@
 .nav-institutos {
-	padding: 24px 0;
+	padding: 0;
+	margin: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-wrap: wrap;
+
 	@include respond-to("small-device") {
-		flex-wrap: wrap;
+		margin: -24px -24px 0 -24px;
 	}
 }
 
 .instituto {
+	border-bottom: 1px solid black;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
 	padding: 12px;
-	border: 1px solid white;
-	margin: 6px 6px 6px 0;
-	height: auto;
-	text-decoration: underline;
-	@include respond-to("small-device") {
-		height: auto;
-		padding: 0;
+	color: black;
+	height: 115px - 24px;
+	width: calc(50% - 25px);
+
+	&:nth-child(odd) {
+		border-right: 1px solid black;
+		h2 {
+			padding-left: $horizontal_padding - 12px;
+			@include respond-to("small-device") {
+				padding-left: 12px;
+			}
+		}
 	}
-	@include respond-to("large-device") {
-		height: 120px;
-	}
+
 	h2 {
-		font-size: 22px;
-		line-height: 1.4em;
+		font-size: 24px;
+		line-height: 1.2em;
+		font-weight: bold;
+		padding: 12px;
 	}
 	@include respond-to("small-device") {
 		width: 100%;
 		margin: 6px 0;
+		border-right: 0;
+		h2 {
+			padding: 12px;
+		}
 	}
 	&:hover,
 	&.current {
-		border-color: blue;
-		text-decoration: none;
-		@include respond-to("small-device") {
-			padding: 12px;
-		}
+		text-decoration: underline;
 	}
 
 	&.current {
@@ -45,6 +57,28 @@
 		color: black;
 		@include respond-to("small-device") {
 			padding: 12px;
+		}
+	}
+}
+
+.inside {
+	.nav-institutos {
+		width: calc($sidebar_width +  $horizontal_padding);
+		height: calc(100vh - $header_height);
+		position: fixed;
+		right: 0;
+		top: $header_height;
+		border-left: 1px solid black;
+		display: block;
+		.instituto {
+			width: 100%;
+			border-right: 0;
+			height: 115px;
+			text-align: left;
+			h2 {
+				padding-right: $horizontal_padding;
+				padding-left: 12px;
+			}
 		}
 	}
 }

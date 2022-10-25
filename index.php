@@ -1,5 +1,5 @@
 <?php get_header();?>
-<main id="primary" class="site-main">
+<main id="primary" class="site-main inside <?php echo ($post->post_parent == 8 || $post->post_name == 'institutos' ? 'with-institutos-nav' : '');?>">
 	<?php
 		if ( have_posts() ) :
 

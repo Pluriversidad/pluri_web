@@ -1,0 +1,38 @@
+header.site-header {
+	padding: 0 $horizontal_padding;
+	position: relative;
+	border-bottom: 1px solid black;
+	display: flex;
+	justify-content: space-between;
+	height: $header_height;
+	img {
+		margin: 12px 0 5px 0;
+		width: 105px;
+	}
+	@include respond-to("small-device") {
+		padding: 0;
+		height: $header_height;
+		img {
+			max-height: $header_height - 24px;
+			margin: 12px;
+			width: 120px;
+		}
+	}
+	h1.site-title {
+		font-weight: 600;
+		text-transform: uppercase;
+		margin-bottom: 0;
+
+	}
+
+	#carbon {
+		position: absolute;
+		font-size: 14px;
+		padding: 12px;
+		right: 100px + $horizontal_padding;
+		@include respond-to("small-device") {
+			right: 90px;
+		}
+	}
+}
+

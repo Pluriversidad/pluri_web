@@ -1,0 +1,22 @@
+.entry-info {
+	margin-bottom: 12px;
+}
+
+.entry-header {
+	h1 {
+		margin-bottom: 0;
+	}
+	margin-bottom: 36px;
+}
+
+.entry-content {
+	line-height: 1.4em;
+	a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	img {
+		margin: 12px 0;
+	}
+}

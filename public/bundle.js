@@ -1598,15 +1598,15 @@ carbonContainer.innerHTML = "".concat(pageCarbon, " gr. de co2");
 //navigation
 var nav = document.querySelector("#main-navigation");
 var toggleMenu = document.querySelector("#toggle-menu");
-nav.classList.add("hidden");
+nav.classList.add("collapsed");
 toggleMenu.addEventListener("click", function (e) {
   e.preventDefault();
-  if (nav.classList.contains("hidden")) {
-    nav.classList.remove("hidden");
-    toggleMenu.innerText = "CERRAR";
+  if (nav.classList.contains("collapsed")) {
+    nav.classList.remove("collapsed");
+    toggleMenu.classList.add("active");
   } else {
-    nav.classList.add("hidden");
-    toggleMenu.innerText = "MENU";
+    nav.classList.add("collapsed");
+    toggleMenu.classList.remove("active");
   }
 });
 console.log(nav);
