@@ -1,19 +1,19 @@
 <div class="nav-institutos">
 	<?php 
-	$institutos = get_children(
-		array(
-			'post_parent' 	=> 8,
-			'orderby'		=> 'menu_order',
-			'order'			=> 'ASC',
-			'post_type'		=> 'page'
-		)
+	$args = array(
+		'taxonomy' 		=> 'instituto',
+		'hide_empty'	=> false
 	);
+	
+	$institutos = get_terms( $args );
+	$current_taxonomy = $wp_query->get_queried_object();
+	//var_dump($institutos);
 
 	foreach($institutos as $instituto) {
 		?>
-		<a class="instituto <?php echo($instituto->ID == $post->ID) ? 'current' : '';?>" href="<?php echo get_permalink($instituto->ID);?>">
+		<a class="instituto <?php echo($instituto->term_id == $current_taxonomy->term_id) ? 'current' : '';?>" href="<?php echo get_term_link($instituto->term_id);?>">
 			<h2>
-				<?php echo $instituto->post_title;?>
+				<?php echo $instituto->name;?>
 			</h2>
 		</a>
 
