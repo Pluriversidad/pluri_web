@@ -96,12 +96,13 @@
 		endif;
 			?>
 
-			<?php 
+			
+</main>
+<?php 
 				//Si es una descripción de instituto
 				if($post->post_parent == 8 || $post->post_name == 'institutos'):
 					get_template_part('parts/institutos-nav');
 				endif;
 			?>
-</main>
 
 <?php get_footer();?>
