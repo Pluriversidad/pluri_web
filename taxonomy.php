@@ -1,6 +1,6 @@
 <?php get_header();?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main inside with-institutos-nav">
 	<?php 
 
 	$current_taxonomy = $wp_query->get_queried_object();
@@ -8,7 +8,7 @@
 		//var_dump($current_taxonomy);
 	?>
 
-	<header>
+	<header class="taxonomy-header">
 		<h1><?php echo $current_taxonomy->name;?></h1>
 		<div class="entry-content">
 			<?php echo apply_filters('the_content', $current_taxonomy->description);?>
@@ -60,12 +60,14 @@
 
 
 
+		
+	</main>
+
 		<?php 
 				//Si es una descripción de instituto
 		if(is_taxonomy( 'instituto' )):
 			get_template_part('parts/institutos-nav');
 		endif;
 		?>
-	</main>
 
 	<?php get_footer();?>

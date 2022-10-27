@@ -1,10 +1,18 @@
 .entry-info {
 	margin-bottom: 12px;
+	a {
+		text-decoration: none;
+		color: black;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 .entry-header {
 	h1 {
 		margin-bottom: 0;
+		font-weight: bold;
 	}
 	margin-bottom: 36px;
 }

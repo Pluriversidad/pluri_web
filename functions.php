@@ -1,7 +1,7 @@
 <?php
 //functions
 
-define('PLURI_VERSION', '0.1.3');
+define('PLURI_VERSION', '0.2');
 
 function pluri_styles() {
 	wp_enqueue_style( 'pluri_frontend', get_bloginfo('template_url') . '/public/frontend.css', array(), PLURI_VERSION, 'screen' );
@@ -17,6 +17,7 @@ add_theme_support( 'title-tag' );
 register_nav_menus(
 	array(
 		'principal' => esc_html__( 'Principal', 'pluri_landing' ),
+		'icon_links'=> esc_html__( 'Links', 'pluri_landing')
 	)
 );
 

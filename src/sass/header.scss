@@ -7,15 +7,15 @@ header.site-header {
 	height: $header_height;
 	img {
 		margin: 12px 0 5px 0;
-		width: 105px;
+		width: 160px;
 	}
 	@include respond-to("small-device") {
 		padding: 0;
-		height: $header_height;
+		height: $mobile_header_height;
 		img {
-			max-height: $header_height - 24px;
-			margin: 12px;
-			width: 120px;
+			//max-height: $header_height - 24px;
+			margin: 12px 12px 12px 24px;
+			width: 100px;
 		}
 	}
 	h1.site-title {
