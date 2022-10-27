@@ -7,7 +7,7 @@ module.exports = {
 	entry: { frontend_v022: ["./src/index.js", "./src/sass/style.scss"] },
 	output: {
 		path: path.resolve(__dirname, "public"),
-		filename: "bundle.js",
+		filename: "bundle_v022.js",
 		clean: true,
 	},
 	mode: "development",
