@@ -4,7 +4,7 @@
 define('PLURI_VERSION', '0.2.2');
 
 function pluri_styles() {
-	wp_enqueue_style( 'pluri_frontend', get_bloginfo('template_url') . '/public/frontend.css', array(), PLURI_VERSION, 'screen' );
+	wp_enqueue_style( 'pluri_frontend', get_bloginfo('template_url') . '/public/frontend_v022.css', array(), PLURI_VERSION, 'screen' );
 	wp_enqueue_script('pluri_js', get_bloginfo('template_url') . '/public/bundle.js', array(), PLURI_VERSION, true);
 }
 add_action( 'wp_enqueue_scripts', 'pluri_styles' );
