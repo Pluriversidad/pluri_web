@@ -1,0 +1,35 @@
+
+body.post-type-archive-red_y_consejo {
+	h1.archive-title {
+		margin-bottom: 64px;
+	}
+}
+
+
+article.archive-item.archive-item-red_y_consejo {
+	align-items: flex-start;
+	border-top: 1px solid black;
+	@include fullwidth;
+
+	h3 {
+		font-weight: bold;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+		filter: grayscale(100%)
+	}
+}
+
+section.cat-red-section {
+	margin-bottom: 36px;
+	
+	h2.cat-red {
+		font-size: 32px;
+		font-weight: bold;
+		margin-bottom: 32px;
+		border-top: 1px dashed black;
+		padding-top: 64px;
+		@include fullwidth;
+	}	
+}

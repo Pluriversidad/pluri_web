@@ -19,11 +19,46 @@
 
 .entry-content {
 	line-height: 1.4em;
+
+	h1, h2, h3, h4 {
+		font-weight: bold;
+	}
+
+	h1 {
+		font-size: 42px;
+	}
+
+	h2 {
+		font-size: 36px;
+		margin-top: 2em;
+	}
+
+	h3 {
+		font-size: 32px;
+	}
+
 	a {
 		&:hover {
 			text-decoration: none;
 		}
 	}
+
+	p {
+		margin-bottom: 1.25em;
+	}
+
+	ol, ul {
+		margin-left: 24px;
+		li {
+			margin-bottom: 12px;
+			ol, ul {
+				li {
+					margin-bottom: 12px;
+				}
+			}
+		}
+	}
+
 	img {
 		margin: 12px 0;
 	}

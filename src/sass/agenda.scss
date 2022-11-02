@@ -1,4 +1,29 @@
-.event-data {
-	padding: 24px 0;
-	line-height: 1.4em;
+article.archive-item.archive-item-calendario {
+	border-bottom: 1px solid black;
+	padding-top: 24px;
+	padding-bottom: 24px;
+	@include fullwidth;
+	span.date {
+		font-weight: bold;
+	}
+	a.event-name,
+	span.event-name {
+		text-decoration: none;
+		color: black;
+		display: inline-block;
+		&:before, &:after {
+			content: " | ";
+			font-weight: normal;
+			font-style: normal;
+		}
+	}
+
+	a.event-name {
+		font-weight: bold;
+		font-style: oblique;
+		&:hover {
+			text-decoration: underline;
+			font-style: oblique;
+		}
+	}
 }

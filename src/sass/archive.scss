@@ -11,7 +11,8 @@ h2.archive-entry-title {
 	}
 	a {
 		&:hover {
-			text-decoration: none;
+			text-decoration: underline;
+			font-style: oblique;
 		}
 	}
 }
@@ -27,6 +28,10 @@ article.archive-item {
 		a {
 			color: black;
 			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+				font-style: oblique;
+			}
 		}
 	}
 
@@ -58,47 +63,7 @@ article.archive-item {
 	}
 }
 
-.post-type-archive-red_y_consejo {
-	
-	article.archive-item-red_y_consejo {
-		display: block;
-		width: 250px;
-		margin: 12px;
-		border: 1px solid #000;
-		padding: 0;
 
-		.archive-entry-content {
-			padding: 12px;
-		}
-	}
-
-	.archive-items-wrapper {
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	.placeholder-thumbnail,
-	.archive-post-thumbnail {
-		overflow: hidden;
-		display: block;
-		width: 250px;
-		height: 250px;
-		background-color: #f0f0f0;
-		
-		margin-bottom: 12px;
-		img {
-			width: 250px;
-			height: 250px;
-		}
-	}
-
-	h2.archive-entry-title {
-		font-size: 32px;
-	}
-
-
-
-}
 
 .taxonomy-header {
 	h1 {

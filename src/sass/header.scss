@@ -29,7 +29,7 @@ header.site-header {
 		position: absolute;
 		font-size: 14px;
 		padding: 12px;
-		right: 100px + $horizontal_padding;
+		right: $horizontal_padding;
 		@include respond-to("small-device") {
 			right: 90px;
 		}

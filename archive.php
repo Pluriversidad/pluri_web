@@ -30,23 +30,28 @@
 				<?php if(!has_post_thumbnail() && get_post_type() == 'red_y_consejo'):?>
 
 					<a href="<?php the_permalink();?>" class="placeholder-thumbnail">
-						
+						<?php the_title();?>
 					</a>
 
 				<?php endif;?>
 
 				<div class="archive-entry-content">
+					<?php if(get_post_type() != 'calendario'):?>
+					
 					<h2 class="archive-entry-title">
-						<?php if(get_post_type() != 'red_y_consejo'):?>
 							<a href="<?php the_permalink();?>"><?php the_title();?></a>
-						<?php else:?>
-							<?php the_title();?>
-						<?php endif;?>
+						
 					</h2>
+
+					
 
 					<div class="excerpt">
 						<?php the_excerpt();?>
 					</div>
+
+					<?php endif;?>
+
+					
 				
 
 				<?php 

@@ -1,0 +1,12 @@
+@mixin fullwidth {
+	margin-left: -$horizontal_padding;
+	margin-right: -$horizontal_padding;
+	padding-left: $horizontal_padding;
+	padding-right: $horizontal_padding;
+	@include respond-to(small-device) {
+		margin-left: -$mobile_horizontal_padding;
+		margin-right: -$mobile_horizontal_padding;
+		padding-left: $mobile_horizontal_padding;
+		padding-right: $mobile_horizontal_padding;
+	}
+}
