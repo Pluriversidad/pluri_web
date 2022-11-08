@@ -4,8 +4,8 @@
 define('PLURI_VERSION', '0.2.4');
 
 function pluri_styles() {
-	wp_enqueue_style( 'pluri_frontend', get_bloginfo('template_url') . '/public/frontend_v023.css', array(), PLURI_VERSION, 'screen' );
-	wp_enqueue_script('pluri_js', get_bloginfo('template_url') . '/public/bundle_v023.js', array(), PLURI_VERSION, true);
+	wp_enqueue_style( 'pluri_frontend', get_bloginfo('template_url') . '/public/frontend_v024.css', array(), PLURI_VERSION, 'screen' );
+	wp_enqueue_script('pluri_js', get_bloginfo('template_url') . '/public/bundle_v024.js', array(), PLURI_VERSION, true);
 }
 add_action( 'wp_enqueue_scripts', 'pluri_styles' );
 
