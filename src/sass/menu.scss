@@ -182,27 +182,32 @@ nav#desktop-menu {
 
 				&.active {
 					ul.sub-menu {
-						height: 300px;
-						max-height: 100%;
+						height: auto;
+						max-height: 1000px;
 						border: 1px solid black;
 						opacity: 1;
 					}
 				}
 
 				ul.sub-menu {
-					height: 0;
-					overflow: hidden;
+					max-height: 0;
+					//overflow: hidden;
+					display: block;
 					opacity: 0;
 					position: absolute;
 					left: -1px;
 					top: 48px;
 					border: 0;
-					transition: all ease-in-out 0.4s;
+					transition: all ease-in-out 0.2s;
+					li {
+						display: block;
+					}
 					li a {
 						text-decoration: none;
 						font-style: normal;
 						padding: 12px;
 						background-color: white;
+						display:block;
 						&:hover {
 							text-decoration: underline;
 							//font-style: oblique;
