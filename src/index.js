@@ -23,6 +23,9 @@ carbonContainer.innerHTML = `${pageCarbon} gr. de co2`;
 //navigation
 const nav = document.querySelector("#main-navigation");
 const toggleMenu = document.querySelector("#toggle-menu");
+const toggleSubMenuDesktop = document.querySelectorAll(
+	"#desktop-menu li.menu-item-has-children > a"
+);
 
 nav.classList.add("collapsed");
 
@@ -35,6 +38,18 @@ toggleMenu.addEventListener("click", function (e) {
 		nav.classList.add("collapsed");
 		toggleMenu.classList.remove("active");
 	}
+});
+
+toggleSubMenuDesktop.forEach(function (el) {
+	el.addEventListener("click", function (e) {
+		e.preventDefault();
+		let parentLi = el.parentElement;
+		if (parentLi.classList.contains("active")) {
+			parentLi.classList.remove("active");
+		} else {
+			parentLi.classList.add("active");
+		}
+	});
 });
 
 console.log(nav);

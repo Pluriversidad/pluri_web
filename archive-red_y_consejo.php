@@ -1,6 +1,6 @@
 <?php get_header();?>
 <main id="primary" class="site-main">
-	<h1 class="archive-title"><?php the_archive_title( );?></h1>
+	<!--<h1 class="archive-title"><?php the_archive_title( );?></h1>-->
 
 	<?php 
 
