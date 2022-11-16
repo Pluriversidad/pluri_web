@@ -71,7 +71,13 @@ strong {
 //Cosas aún sin clasificar
 main {
 	padding: 120px $horizontal_padding;
-	//max-width: 1200px;
+	max-width: 1400px;
+	margin: auto;
+	@include respond-to("xl-device") {
+		max-width: 1400px;
+		margin: auto;	
+	}
+
 	@include respond-to("small-device") {
 		padding: 24px $mobile_horizontal_padding;
 	}
@@ -113,3 +119,4 @@ main {
 		text-decoration: none;
 	}
 }
+

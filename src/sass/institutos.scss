@@ -3,6 +3,8 @@ body.page-template-page-institutos {
 	
 	main {
 		padding-top: 0;
+		width: 100%;
+		max-width: 100%;
 		@include fullwidth;	
 	}
 }
@@ -25,10 +27,11 @@ body.page-template-page-institutos {
 	text-decoration: none;
 	display: flex;
 	align-items: center;
-	padding: 12px;
+	padding: 10px;
 	color: black;
 	height: 115px - 24px;
 	width: calc(50% - 25px);
+	background-color: white;
 
 	&:nth-child(odd) {
 		border-right: 1px solid black;
@@ -57,13 +60,14 @@ body.page-template-page-institutos {
 			padding: 12px;
 		}
 	}
-	&:hover,
-	&.current {
+	&:hover
+	{
 		text-decoration: underline;
 	}
 
 	&.current {
 		pointer-events: none;
+		background-color: black;
 		cursor: default;
 		text-decoration: underline;
 		@include respond-to("small-device") {
@@ -124,6 +128,39 @@ body.admin-bar {
 	&.inside {
 		.nav-institutos {
 			top: 147px;
+		}
+	}
+}
+
+.taxonomy-items {
+	h1 {
+		font-size: 24px;
+		font-weight: bold;
+		border-bottom: 1px solid black;
+		padding-bottom: 24px;
+		@include fullwidth;
+	}
+}
+
+ul.archive-items-list {
+	display: flex;
+	flex-wrap: wrap;
+	li {
+		margin: 12px;
+		width: calc(50% - 24px);
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		h3 {
+			font-size: 24px;
+		}
+		
+
+		@include respond-to("small-device") {
+			width: 100%;
+			margin: 12px 0;
 		}
 	}
 }

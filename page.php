@@ -33,65 +33,13 @@
 				<div class="entry-content">
 					<?php the_content();?>
 
-					<?php 
-					//Si es una página de instituto vinculada
-					if($post->post_parent == 8 || $post->post_name == 'institutos'):
-						$instituto = get_post_meta($post->ID, 'instituto_vinculado', true);
-						if($instituto) {
-							//Contenidos vinculados al instituto
-							$content_types = ['calendario', 'cursos', 'cuaderno_de_notas', 'formaciones', 'red_y_consejo'];
-
-							foreach($content_types as $content_type):
-								$args = array(
-									'post_type' 	=> $content_type,
-									'numberposts' 	=> -1,
-									'tax_query'		=> array(
-														array(
-															'taxonomy' => 'instituto',
-															'field'		=> 'term_id',
-															'terms'		=> $instituto[0]
-															)
-														)
-								);
-
-								$items = get_posts($args);
-
-								if($items) {
-									$typelabels = get_post_type_object($content_type);
-
-									?>
-
-									<h3><?php echo $typelabels->labels->name;?></h3>
-
-									<ul>
-										<?php foreach($items as $item):?>
-											<li><a href="<?php echo get_permalink($item->ID);?>"><?php echo $item->post_title;?></a></li>
-										<?php endforeach;?>
-									</ul>
-
-									<?php
-								}
-							endforeach;
-
-
-						}
-					endif;
-					?>
-
-					<?php 
-					//Si es un item de agenda
-					if(get_post_type() == 'calendario'):
-					?>
-
-						<?php get_template_part('parts/event-data');?>
-
-					<?php endif;?>
+					
 				</div>
 
 				
 					<div class="image-wrapper sidebar-right">
 						<?php if(has_post_thumbnail()):?>
-							<?php the_post_thumbnail('medium_large');?>
+							<?php the_post_thumbnail('medium');?>
 						<?php endif;?>			
 						
 						<div class="entry-info">
@@ -128,11 +76,5 @@
 
 			
 </main>
-<?php 
-				//Si es una descripción de instituto
-				if($post->post_parent == 8 || $post->post_name == 'institutos'):
-					get_template_part('parts/institutos-nav');
-				endif;
-			?>
 
 <?php get_footer();?>

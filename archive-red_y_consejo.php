@@ -20,8 +20,10 @@
 				$cat = get_category( $catID );
 
 				?>
-				<section class="cat-red-section">
+				<div>
 				<h2 class="cat-red"><?php echo $cat->name;?></h2>
+				<section class="cat-red-section">
+				
 
 				<?php
 
@@ -30,25 +32,27 @@
 					?>
 
 					<article class="archive-item archive-item-red_y_consejo <?php echo (has_post_thumbnail($integrante->ID)? 'with-image' : 'no-image');?>">
+							<a href="<?php echo get_permalink($integrante->ID);?>">
 							
-							<?php echo get_the_post_thumbnail( $integrante->ID,	'thumbnail' );?>
-
-						<div class="archive-entry-content">
+							<div class="image-container">
+								<?php echo get_the_post_thumbnail( $integrante->ID,	'thumbnail' );?>
+							</div>
+							
 							<h3><?php echo get_the_title($integrante->ID);?></h3>
 
-							<div class="entry-content">
-								<?php echo apply_filters('the_content', $integrante->post_content);?>
-							</div>
-						</div>
+							</a>
 
 					</article>
 
 				<?php }
 
-			}
+			};?>
+			</section>
+			<?php
 		}
 
 	?>
-	</section>
+	
+</div>
 </main>
 <?php get_footer();?>

@@ -36,17 +36,33 @@
 
 			$items = get_posts($args);
 
-			if($items) {
+			if($items) {?>
+				<h1>Contenidos de este instituto:</h1>
+				<?php
 				$typelabels = get_post_type_object($content_type);
 
 				?>
 
-				<article class="archive-item taxonomy-item">
+				<article class="archive-items taxonomy-item">
 					<h3><?php echo $typelabels->labels->name;?></h3>
 
-					<ul>
-						<?php foreach($items as $item):?>
-							<li><a href="<?php echo get_permalink($item->ID);?>"><?php echo $item->post_title;?></a></li>
+					<ul class="archive-items-list">
+						<?php foreach($items as $item):
+							$thumbid = get_post_thumbnail_id($item->ID);
+							$thumbnail = wp_get_attachment_image_src( $thumbid, 'thumbnail' );
+							?>
+							<li>
+								<a href="<?php echo get_permalink($item->ID);?>">
+								
+								<?php if(has_post_thumbnail( $item->ID )):?>	
+									<img src="<?php echo $thumbnail[0];?>" alt="<?php echo $item->post_title;?>">
+								<?php else:?>
+									<div class="img-placeholder"></div>
+								<?php endif;?>
+
+								<h3><?php echo $item->post_title;?></h3>
+									
+								</a></li>
 						<?php endforeach;?>
 					</ul>
 				</article>

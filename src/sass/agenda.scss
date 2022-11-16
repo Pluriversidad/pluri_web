@@ -2,6 +2,8 @@ article.archive-item.archive-item-calendario {
 	border-bottom: 1px solid black;
 	padding-top: 24px;
 	padding-bottom: 24px;
+	width: 100%;
+	align-items: flex-start;
 	@include fullwidth;
 	span.date {
 		font-weight: bold;

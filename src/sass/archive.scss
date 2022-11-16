@@ -1,3 +1,12 @@
+.archive-items-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	@include respond-to("small-device") {
+		display: block;
+	}
+}
+
+
 h1.archive-title {
 	margin-bottom: 1em;
 	font-weight: bold;
@@ -5,7 +14,9 @@ h1.archive-title {
 }
 
 h2.archive-entry-title {
-	font-size: 44px;
+	font-size: 28px;
+	max-width: calc(100% - 24px);
+	padding: 12px;
 	@include respond-to("small-device") {
 		font-size: 28px;
 	}
@@ -19,26 +30,39 @@ h2.archive-entry-title {
 
 article.archive-item {
 	padding: 48px 0;
-	@include respond-to("small-device") {
-		padding: 24px 0;
+	width: calc(25% - 48px);
+	margin: 12px;
+
+	@include respond-to("medium-device") {
+		width: calc(50% - 24px);
 	}
 
-	.archive-entry-title {
-		font-weight: bold;
+	@include respond-to("small-device") {
+		padding: 24px 0;
+		width: 100%;
+	}
+
+	
+		
 		a {
 			color: black;
+			font-weight: bold;
 			text-decoration: none;
 			&:hover {
 				text-decoration: underline;
 				font-style: oblique;
 			}
 		}
-	}
+	
 
 	&.with-image {
 		display: flex;
+		flex-direction: column;
+		align-items: center;
 		img {
-			margin-right: 24px;
+			margin-right: 0;
+			width: 100%;
+			height: auto;
 		}
 
 		@include respond-to("small-device") {

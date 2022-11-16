@@ -30,6 +30,12 @@ header.site-header {
 		font-size: 14px;
 		padding: 12px;
 		right: $horizontal_padding;
+		
+
+		@include respond-to("medium-device") {
+			right: 130px;
+		}
+
 		@include respond-to("small-device") {
 			right: 90px;
 		}

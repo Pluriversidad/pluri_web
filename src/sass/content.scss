@@ -38,8 +38,11 @@
 	}
 
 	a {
+		color: black;
+		background-color: rgba(255, 255, 0, 0.6);
 		&:hover {
-			text-decoration: none;
+			//text-decoration: none;
+			background-color: rgba(255, 255, 0, 0.8);
 		}
 	}
 
@@ -61,5 +64,74 @@
 
 	img {
 		margin: 12px 0;
+	}
+}
+
+body.single,
+body.page {
+	.entry-content {
+		max-width: 800px;
+		float: left;
+
+		@include respond-to("medium-device") {
+			max-width: 480px;
+		}
+
+		h1:nth-of-type(1n),
+		h2:nth-of-type(1n)
+		 {
+		 	margin-top: 0;
+		}
+
+		@include respond-to("small-device") {
+			h2 {
+				font-size: 24px;
+			}
+		}
+	}
+
+	.image-wrapper, .sidebar-right {
+		float: right;
+		width: 400px;
+
+		@include respond-to("medium-device") {
+			width: 200px;
+		}
+
+		@include respond-to("small-device") {
+			float: none;
+			width: auto;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+
+		.institutos-terms {
+			a {
+				display: block;
+				padding: 12px;
+				margin: 5px 0;
+				border: 1px solid black;
+			}
+		}
+
+		.tag-terms {
+			a {
+				display: inline-block;
+				padding: 12px;
+				&:nth-of-type(1n) {
+					padding-left: 0;
+				}
+			}
+		}
+
+		.entry-info {
+			h3 {
+				font-weight: bold;
+				font-size: 24px;
+				margin: 1.5em 0 1em 0;
+			}
+		}
 	}
 }

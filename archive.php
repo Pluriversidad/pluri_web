@@ -2,16 +2,17 @@
 <main id="primary" class="site-main">
 	<h1 class="archive-title"><?php the_archive_title( );?></h1>
 	<?php
-		if ( have_posts() ) :?>
+	if ( have_posts() ) :?>
 
-			<div class="archive-items-wrapper">
+		<div class="archive-items-wrapper">
 
 			<?php
 
 			while ( have_posts() ) :?>
 				<article class="archive-item <?php echo 'archive-item-' . get_post_type();?> <?php echo (has_post_thumbnail()? 'with-image' : 'no-image');?>">
-				<?php
-				the_post();
+					<a href="<?php the_permalink();?>">
+						<?php
+						the_post();
 
 				/*
 				 * Include the Post-Type-specific template for the content.
@@ -21,37 +22,24 @@
 				?>
 				<?php if(has_post_thumbnail(  ) && get_post_type() != 'calendario'):?>
 
-					<div class="archive-post-thumbnail">
-						<a href="<?php the_permalink();?>"><?php the_post_thumbnail('thumbnail');?></a>
-					</div>
+				<div class="archive-post-thumbnail">
+					<?php the_post_thumbnail('thumbnail');?>
+				</div>
 
-				<?php endif;?>
+			<?php endif;?>
 
-				<?php if(!has_post_thumbnail() && get_post_type() == 'red_y_consejo'):?>
+			
 
-					<a href="<?php the_permalink();?>" class="placeholder-thumbnail">
-						<?php the_title();?>
-					</a>
-
-				<?php endif;?>
-
-				<div class="archive-entry-content">
-					<?php if(get_post_type() != 'calendario'):?>
+			<div class="archive-entry-content">
+				<?php if(get_post_type() != 'calendario'):?>
 					
 					<h2 class="archive-entry-title">
-							<a href="<?php the_permalink();?>"><?php the_title();?></a>
-						
+						<?php the_title();?>
 					</h2>
 
-					
+				<?php endif;?>
 
-					<div class="excerpt">
-						<?php the_excerpt();?>
-					</div>
-
-					<?php endif;?>
-
-					
+				
 				
 
 				<?php 
@@ -65,25 +53,26 @@
 
 				
 
-				</div>
-				</article>
-				<?php
-
-			endwhile;?>
-
-			
 			</div>
-			<?php
-			else:?>
+		</a>
+	</article>
+	<?php
 
-				<div class="archive-items-wrapper">
-					<article class="no-content">
-						<h2 class="archive-entry-title">Esta sección aún no tiene contenido</h2>
-					</article>
-				</div>
+endwhile;?>
 
-			<?php 
-			endif;
-			?>
+
+</div>
+<?php
+else:?>
+
+	<div class="archive-items-wrapper">
+		<article class="no-content">
+			<h2 class="archive-entry-title">Esta sección aún no tiene contenido</h2>
+		</article>
+	</div>
+
+	<?php 
+endif;
+?>
 </main>
 <?php get_footer();?>
