@@ -27,9 +27,7 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     if( is_post_type_archive() ) {
     	$ptypeobj = get_post_type_object(get_post_type( $post->ID ));
         $title = $ptypeobj->labels->name;
-
     }
 
     return $title;
-
 });
