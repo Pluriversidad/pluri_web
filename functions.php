@@ -1,10 +1,10 @@
 <?php
 //functions
 
-define('PLURI_VERSION', '0.2.6');
+define('PLURI_VERSION', '0.2.7');
 
 function pluri_styles() {
-	wp_enqueue_style( 'pluri_frontend', get_bloginfo('template_url') . '/public/frontend_v026.css', array(), PLURI_VERSION, 'screen' );
+	wp_enqueue_style( 'pluri_frontend', get_bloginfo('template_url') . '/public/frontend_v027.css', array(), PLURI_VERSION, 'screen' );
 	wp_enqueue_script('pluri_js', get_bloginfo('template_url') . '/public/bundle_v026.js', array(), PLURI_VERSION, true);
 }
 add_action( 'wp_enqueue_scripts', 'pluri_styles' );
@@ -41,3 +41,15 @@ function tag_filter($query) {
   }
 }
 add_action('pre_get_posts','tag_filter');
+
+function pluri_custom_mime_types( $mimes ) {
+	
+	// New allowed mime types.
+	$mimes['md']  = 'text/markdown';
+	$mimes['markdown'] = 'text/markdown';
+	
+	return $mimes;
+
+}
+
+add_filter( 'upload_mimes', 'pluri_custom_mime_types' );

@@ -65,6 +65,17 @@
 	img {
 		margin: 12px 0;
 	}
+
+	.wp-caption {
+		border: 0;
+		a {
+			background-color: transparent;
+		}
+		.wp-caption-text {
+			font-size: 16px;
+		}
+	}
+
 }
 
 body.single,
