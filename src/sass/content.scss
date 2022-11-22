@@ -51,15 +51,24 @@
 	}
 
 	ol, ul {
-		margin-left: 24px;
+		margin-left: 48px;
 		li {
 			margin-bottom: 12px;
 			ol, ul {
+				margin-top: 24px;
 				li {
 					margin-bottom: 12px;
 				}
 			}
 		}
+	}
+
+	ul li {
+		list-style: disc;
+	}
+
+	ol li {
+		list-style: decimal;
 	}
 
 	img {
