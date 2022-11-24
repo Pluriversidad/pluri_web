@@ -5,7 +5,8 @@ body.page-template-page-institutos {
 		padding-top: 0;
 		width: 100%;
 		max-width: 100%;
-		@include fullwidth;	
+		@include fullwidth;
+		padding-right: 0;
 	}
 }
 
@@ -16,6 +17,12 @@ body.page-template-page-institutos {
 	align-items: center;
 	justify-content: flex-start;
 	flex-wrap: wrap;
+	max-width: $max-site-width;
+
+	@media screen and (min-width:1400px) {
+		margin: 0 auto;
+		border-left: 1px solid black;
+	}
 
 	@include respond-to("small-device") {
 		//margin: -24px -24px 0 -24px;
@@ -30,7 +37,7 @@ body.page-template-page-institutos {
 	padding: 10px;
 	color: black;
 	height: 115px - 24px;
-	width: calc(50% - 25px);
+	width: calc(50% - 21px);
 	background-color: white;
 
 	&:nth-child(odd) {
@@ -44,6 +51,12 @@ body.page-template-page-institutos {
 				padding-left: 12px;
 			}
 		}
+	}
+	&:nth-child(even) {
+		@media screen and (min-width: 1400px) {
+			border-right: 1px solid black;
+		}
+		
 	}
 
 	h2 {

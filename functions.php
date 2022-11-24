@@ -1,11 +1,18 @@
 <?php
 //functions
 
-define('PLURI_VERSION', '0.2.8');
+define('PLURI_VERSION', '0.2.9');
 
 function pluri_styles() {
-	wp_enqueue_style( 'pluri_frontend', get_bloginfo('template_url') . '/public/frontend_v028.css', array(), PLURI_VERSION, 'screen' );
-	wp_enqueue_script('pluri_js', get_bloginfo('template_url') . '/public/bundle_v028.js', array(), PLURI_VERSION, true);
+	wp_enqueue_style( 'pluri_frontend', get_bloginfo('template_url') . '/public/frontend_v029.css', array(), PLURI_VERSION, 'screen' );
+	wp_enqueue_script('pluri_js', get_bloginfo('template_url') . '/public/bundle_v029.js', array(), PLURI_VERSION, true);
+
+	wp_localize_script('pluri_js', 'pluri', array(
+		'ajax_url' => admin_url('admin-ajax.php'),
+		'home_url' => home_url(),
+		'nonce' => wp_create_nonce('pluri_nonce'),
+		'tags'	=> get_tags(),
+	));
 }
 add_action( 'wp_enqueue_scripts', 'pluri_styles' );
 

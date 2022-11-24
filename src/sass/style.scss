@@ -7,6 +7,7 @@
 
 $min_width: 320px;
 $max_width: 1200px;
+$max_site_width: 1400px;
 $min_font: 16px;
 $max_font: 24px;
 
@@ -99,7 +100,7 @@ main {
 }
 
 .site-footer {
-	text-align: left;
+	text-align: center;
 	font-size: 16px;
 	padding: 24px $horizontal_padding;
 	@include respond-to("small-device") {
@@ -120,3 +121,49 @@ main {
 	}
 }
 
+.pluri-tag-cloud {
+	margin:24px auto;
+	display: flex;
+	justify-content: center;
+	@include respond-to("small-device") {
+		max-width: 100%;
+		overflow: hidden;
+	}
+	span {
+		font-weight: bold;
+	}
+}
+
+
+
+.home-section {
+	display: flex;
+	.description {
+		padding: 72px 72px 36px 0;
+		line-height: 1.2;
+		font-size: 22px;
+	}
+
+	@include respond-to("small-device") {
+		display: block;
+		.description {
+			padding: 24px;
+			font-size: 16px;
+			display: none;
+		}
+	}
+
+	@media screen and (min-width: 1200px) {
+		.description {
+			font-size: 22px;
+			padding-left: 60px;
+		}
+	}
+
+	@media screen and (min-width: 1367px) {
+		.description {
+			font-size: 24px;
+			padding-left: 0;
+		}
+	}
+}

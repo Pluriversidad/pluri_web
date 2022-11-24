@@ -37,10 +37,7 @@
 				</div>
 
 				
-					<div class="image-wrapper sidebar-right">
-						<?php if(has_post_thumbnail()):?>
-							<?php the_post_thumbnail('medium');?>
-						<?php endif;?>			
+					<div class="image-wrapper sidebar-right">		
 						
 						<div class="entry-info">
 							<?php 

@@ -9,7 +9,7 @@
 			<?php
 
 			while ( have_posts() ) :?>
-				<article class="archive-item <?php echo 'archive-item-' . get_post_type();?> <?php echo (has_post_thumbnail()? 'with-image' : 'no-image');?>">
+				<article class="archive-item <?php echo (has_post_thumbnail()? 'with-image' : 'no-image');?>">
 						
 						<?php
 						the_post();

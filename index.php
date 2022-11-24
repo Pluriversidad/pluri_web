@@ -90,7 +90,7 @@
 
 				
 					<div class="image-wrapper sidebar-right">
-						<?php if(has_post_thumbnail()):?>
+						<?php if(has_post_thumbnail() && get_post_type() == 'red_y_consejo'):?>
 							<?php the_post_thumbnail('medium_large');?>
 						<?php endif;?>			
 						

@@ -5,6 +5,13 @@ header.site-header {
 	display: flex;
 	justify-content: space-between;
 	height: $header_height;
+	.site-header-wrapper {
+		max-width: $max-site-width;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
 	img {
 		margin: 12px 0 5px 0;
 		width: 160px;
