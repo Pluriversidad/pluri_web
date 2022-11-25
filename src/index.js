@@ -52,14 +52,17 @@ toggleSubMenuDesktop.forEach(function (el) {
     let parentLi = el.parentElement;
     let others = document.querySelectorAll("li.active");
 
-    for (let i = 0; i < others.length; i++) {
-      others[i].classList.remove("active");
-    }
+    
 
     if (parentLi.classList.contains("active")) {
       parentLi.classList.remove("active");
     } else {
       parentLi.classList.add("active");
+      
+      for (let i = 0; i < others.length; i++) {
+        others[i].classList.remove("active");
+      }
+      
     }
   });
 });
