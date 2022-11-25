@@ -43,7 +43,7 @@ add_filter( 'get_the_archive_title', function ( $title ) {
 function tag_filter($query) {
   if ( !is_admin() ) {
     if ($query->is_tag) {
-      $query->set('post_type', array( 'post', 'calendario', 'cursos', 'cuaderno_de_notas', 'formaciones', 'red_y_consejo' ));
+      $query->set('post_type', array( 'post', 'calendario', 'cursos', 'cuaderno_de_notas', 'formaciones', 'red_y_consejo', 'recursos_pedagogicos' ));
     }
   }
 }
