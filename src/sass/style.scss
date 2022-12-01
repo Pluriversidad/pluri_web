@@ -76,11 +76,11 @@ main {
 	margin: auto;
 	@include respond-to("xl-device") {
 		max-width: 1400px;
-		margin: auto;	
+		margin: auto;
 	}
 
 	@include respond-to("small-device") {
-		padding: 24px $mobile_horizontal_padding;
+		padding: 120px $mobile_horizontal_padding 120px $mobile_horizontal_padding;	
 	}
 
 	&.with-institutos-nav {
@@ -91,7 +91,7 @@ main {
 .home main {
 	padding: 0;
 	@include respond-to("small-device") {
-		padding: 0 24px;
+		padding: 120px 24px 24px 24px;
 	}
 }
 

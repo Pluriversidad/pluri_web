@@ -26,9 +26,7 @@
 		<?php wp_nav_menu(array('theme_location' => 'principal'));?>
 		<?php //wp_nav_menu(array('theme_location' => 'icon_links'));?>	
 	</nav>
-
 	
-	<div id="carbon"></div>
 	<a title="Ver navegación" href="#main-navigation" id="toggle-menu">
 		<span></span>
 		<span></span>

@@ -93,6 +93,11 @@ body.page {
 		max-width: 800px;
 		float: left;
 
+		h1, h2, h3 {
+			line-height: 1.1em;
+		}
+		
+
 		@include respond-to("medium-device") {
 			max-width: 480px;
 		}
@@ -104,8 +109,16 @@ body.page {
 		}
 
 		@include respond-to("small-device") {
+			h1 {
+				font-size: 26px;
+			}
+
 			h2 {
 				font-size: 24px;
+			}
+
+			h3 {
+				font-size: 20px;
 			}
 		}
 	}
@@ -152,6 +165,19 @@ body.page {
 				font-size: 24px;
 				margin: 1.5em 0 1em 0;
 			}
+		}
+	}
+}
+
+@include respond-to("small-device") {
+	.entry-content {
+		max-width: 100%;
+		.wp-caption {
+			max-width: calc(100vw - $horizontal_padding);
+		}
+		img {
+			max-width: 100%;
+			height: auto;
 		}
 	}
 }

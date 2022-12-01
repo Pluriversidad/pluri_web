@@ -5,6 +5,7 @@ header.site-header {
 	display: flex;
 	justify-content: space-between;
 	height: $header_height;
+	z-index: 1000;
 	.site-header-wrapper {
 		max-width: $max-site-width;
 		margin: 0 auto;
@@ -19,6 +20,9 @@ header.site-header {
 	@include respond-to("small-device") {
 		padding: 0;
 		height: $mobile_header_height;
+		position: fixed;
+		background-color: white;
+		width: 100%;
 		img {
 			//max-height: $header_height - 24px;
 			margin: 12px 12px 12px 24px;
