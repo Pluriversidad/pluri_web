@@ -1,6 +1,5 @@
 
 body.page-template-page-institutos {
-	
 	main {
 		padding-top: 0;
 		width: 100%;
@@ -114,8 +113,19 @@ body.page-template-page-institutos {
 }
 
 @include respond-to("small-device") {
-	body main.with-institutos-nav {
-		padding: $mobile_horizontal_padding;
+	body main.with-institutos-nav
+	{
+		padding: 120px $mobile_horizontal_padding 24px $mobile_horizontal_padding;
+	}
+
+	body.page-template-page-institutos-php main {
+		padding: 120px 0 0 0;
+		.nav-institutos {
+			margin-right: -$mobile_horizontal_padding;
+			.instituto {
+				padding-left: 24px;
+			}
+		}
 	}
 
 	.inside {
@@ -129,6 +139,7 @@ body.page-template-page-institutos {
 				padding-right: 0;
 				border-right: 0;
 				border-left: 0;
+				width: calc(100% - 12px);
 				h2 {
 					padding-right: 12px;
 				}
