@@ -3,9 +3,7 @@
 
      <div class="home-section">
         
-        <div class="pluri-tag-cloud">
-
-        </div>
+       <div id="kd-graph" style="width: 100%;height: 600px;"></div>
 
     </div>
 
