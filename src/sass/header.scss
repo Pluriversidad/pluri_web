@@ -6,6 +6,7 @@ header.site-header {
 	justify-content: space-between;
 	height: $header_height;
 	z-index: 1000;
+	background-color: white;
 	.site-header-wrapper {
 		max-width: $max-site-width;
 		margin: 0 auto;

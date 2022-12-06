@@ -79,7 +79,7 @@ body.page-template-page-institutos {
 
 	&.current {
 		pointer-events: none;
-		background-color: black;
+		background-color: black !important;
 		cursor: default;
 		text-decoration: underline;
 		@include respond-to("small-device") {
@@ -90,11 +90,11 @@ body.page-template-page-institutos {
 
 .inside {
 	.nav-institutos {
-		@include respond-to("large-device") {
+		@include respond-to("xl-device") {
 			&:after {
 				content: "";
 				display: block;
-				width: 100%;
+				width: calc($sidebar_width +  $horizontal_padding);
 				height: calc(100vh + $header_height);
 				background-color: white;
 				border-left: 1px solid black;
@@ -102,6 +102,7 @@ body.page-template-page-institutos {
 				position: fixed;
 				top: -$header_height;
 				z-index: -2;
+				right: 0;
 			}
 		}
 		@include respond-to("small-device") {
@@ -120,11 +121,13 @@ body.page-template-page-institutos {
 		//border-left: 1px solid black;
 		display: block;
 		.instituto {
-			width: calc(100% - 24px);
+			width: calc(100% - 22px);
 			border-right: 0;
+			border-left: 1px solid black;
 			height: auto;
 			text-align: left;
-			border-left: 1px solid black;
+			border-left: 0;
+			background-color: white;
 			h2 {
 				padding-right: $horizontal_padding;
 				padding-left: 12px;
