@@ -90,19 +90,41 @@ body.page-template-page-institutos {
 
 .inside {
 	.nav-institutos {
+		@include respond-to("large-device") {
+			&:after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: calc(100vh + $header_height);
+				background-color: white;
+				border-left: 1px solid black;
+				margin: 24px 0;
+				position: fixed;
+				top: -$header_height;
+				z-index: -2;
+			}
+		}
+		@include respond-to("small-device") {
+			&:after {
+				display: none;
+			}
+			
+		}
 		width: calc($sidebar_width +  $horizontal_padding);
+		z-index: 20;
 		border-top: 1px solid black;
 		height: calc(100vh - $header_height);
-		position: fixed;
+		position: absolute;
 		right: 0;
 		top: $header_height;
-		border-left: 1px solid black;
+		//border-left: 1px solid black;
 		display: block;
 		.instituto {
-			width: 100%;
+			width: calc(100% - 24px);
 			border-right: 0;
 			height: auto;
 			text-align: left;
+			border-left: 1px solid black;
 			h2 {
 				padding-right: $horizontal_padding;
 				padding-left: 12px;
@@ -134,7 +156,7 @@ body.page-template-page-institutos {
 			position: relative;
 			height: auto;
 			border-left: 0;
-			margin: 0;
+			margin: 0 0 220px 0;
 			.instituto {
 				padding-right: 0;
 				border-right: 0;

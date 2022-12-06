@@ -1,4 +1,6 @@
-article.archive-item.archive-item-calendario {
+article.archive-item.archive-item-calendario,
+.taxonomy-archive-item-calendario
+{
 	border-bottom: 1px solid black;
 	padding-top: 24px;
 	padding-bottom: 24px;
@@ -27,5 +29,12 @@ article.archive-item.archive-item-calendario {
 			text-decoration: underline;
 			font-style: oblique;
 		}
+	}
+}
+
+.taxonomy-archive-item-calendario {
+	border: 0;
+	.date, .pais_ciudad {
+		font-weight: normal !important;
 	}
 }

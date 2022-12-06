@@ -109,6 +109,10 @@ body.page {
 		}
 
 		@include respond-to("small-device") {
+			max-width: 100%;
+			a {
+				word-break: break-word;
+			}
 			h1 {
 				font-size: 26px;
 			}

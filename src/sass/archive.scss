@@ -1,125 +1,158 @@
 .archive-items-wrapper {
-	display: flex;
-	flex-wrap: wrap;
-	@include respond-to("small-device") {
-		display: block;
-	}
+  display: flex;
+  flex-wrap: wrap;
+  @include respond-to("small-device") {
+    display: block;
+  }
 }
 
-
 h1.archive-title {
-	margin-bottom: 1em;
-	font-weight: bold;
-	font-size: 32px;
+  margin-bottom: 1em;
+  font-weight: bold;
+  font-size: 32px;
 }
 
 h2.archive-entry-title {
-	font-size: 28px;
-	max-width: calc(100% - 24px);
-	padding: 12px;
-	@include respond-to("small-device") {
-		font-size: 28px;
-	}
-	a {
-		&:hover {
-			text-decoration: underline;
-			font-style: oblique;
-		}
-	}
+  font-size: 28px;
+  max-width: calc(100% - 24px);
+  padding: 12px;
+  @include respond-to("small-device") {
+    font-size: 28px;
+  }
+  a {
+    &:hover {
+      text-decoration: underline;
+      font-style: oblique;
+    }
+  }
 }
 
 article.archive-item {
-	padding: 48px 0;
-	width: 300px;
-	margin: 12px;
+  padding: 48px 0;
+  width: 300px;
+  margin: 12px;
 
-	@include respond-to("medium-device") {
-		width: calc(50% - 24px);
-	}
+  @include respond-to("medium-device") {
+    width: calc(50% - 24px);
+  }
 
-	@include respond-to("small-device") {
-		padding: 24px 0;
-		width: 100%;
-		margin: 0;
-	}
+  @include respond-to("small-device") {
+    padding: 24px 0;
+    width: 100%;
+    margin: 0;
+  }
 
-	
-		
-		a {
-			color: black;
-			font-weight: bold;
-			text-decoration: none;
-			&:hover {
-				text-decoration: underline;
-				font-style: oblique;
-			}
-		}
-	
+  a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      font-style: oblique;
+    }
+  }
 
-	&.with-image {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		
-		.archive-post-thumbnail {
-			width: 300px;
-			height: 300px;
-			overflow: hidden;
-			@include respond-to("small-device") {
-				width: 100%;
-				height: auto;
-			}
-		}
+  &.with-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-		img {
-			margin-right: 0;
-			width: auto;
-			height: auto;
-			max-height: 300px;
-			min-width: 300px;
-		}
+    .archive-post-thumbnail {
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      @include respond-to("small-device") {
+        width: 100%;
+        height: auto;
+      }
+    }
 
-		@include respond-to("small-device") {
-			display: block;
-			img {
-				width: 100%;
-				height: auto;
-				margin: 0 0 12px 0;
-			}
-		}
-	}
+    img {
+      margin-right: 0;
+      width: auto;
+      height: auto;
+      max-height: 300px;
+      min-width: 300px;
+    }
 
-	.excerpt {
-		line-height: 1.4em;
-		margin-bottom: 12px;
-	}
+    @include respond-to("small-device") {
+      display: block;
+      img {
+        width: 100%;
+        height: auto;
+        margin: 0 0 12px 0;
+      }
+    }
+  }
 
-	a.archive-item-link {
-		&:hover {
-			text-decoration: none;
-		}
-	}
+  .excerpt {
+    line-height: 1.4em;
+    margin-bottom: 12px;
+  }
+
+  a.archive-item-link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
-
-
 .taxonomy-header {
-	h1 {
-		font-weight: bold;
-	}
+  h1 {
+    font-weight: bold;
+  }
 }
 
 .taxonomy-items {
-	h3 {
-		font-weight: bold;
+ .list-taxonomy-items {
+	margin-top: 48px;
+	@include respond-to("small-device") {
+		margin-top: 12px;
 	}
+ }
 
-	li a {
-		font-weight: bold;
-		color: black;
-		text-decoration: none;
-		&:hover {
-			text-decoration: underline;
+  h3 {
+    font-weight: bold;
+  }
+
+  li a {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul.archive-items-list {
+    padding: 24px;
+    border-top: 1px solid black;
+    @include fullwidth;
+    li {
+      margin: 0;
+      padding: 0;
+	  a {
+		display: flex;		
+		align-items: center;
+		margin-bottom: 12px;
+		@include respond-to("small-device") {
+			h3 {
+				font-size: 18px;
+			}
 		}
-	}
+	  }
+      img {
+        max-width: 100px;
+		margin-right: 12px;
+      }
+    }
+  }
+
+  .archive-type-calendario {
+    display: block;
+
+    ul.archive-items-list li {
+      width: 100%;
+    }
+  }
 }
