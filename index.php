@@ -55,8 +55,27 @@
 					<?php
 					$institutos = get_the_terms($post->ID, 'instituto');
 					$tags = get_the_terms($post->ID, 'post_tag');
+					$web = get_field('web', $post->ID);
+					$web_adicional = get_field('web_adicional', $post->ID);
+					$url_limit = 30;
 					?>
 
+					<?php if($web):  ?>
+						<h3>Web</h3>
+						<div class="webs">
+							<p>
+							<a href="<?php echo $web; ?>" target="_blank"><?php echo (strlen($web) > $url_limit) ? substr($web, 0, $url_limit) . '...' : $web; ?></a>
+							</p>
+							<?php if($web_adicional): ?>
+							<p>
+							<a href="<?php echo $web_adicional; ?>" target="_blank"><?php echo (strlen($web_adicional) > $url_limit) ? substr($web_adicional, 0, $url_limit) . '...' : $web_adicional; ?></a>
+							</p>	
+							<?php endif;?>
+
+						</div>
+					<?php endif;?>
+
+					
 					<?php if ($institutos) : ?>
 						<h3>Institutos</h3>
 						<div class="institutos-terms">
