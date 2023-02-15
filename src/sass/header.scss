@@ -11,6 +11,7 @@ header.site-header {
 		max-width: $max-site-width;
 		margin: 0 auto;
 		display: flex;
+		position: relative;
 		justify-content: flex-start;
 		width: 100%;
 		@include respond-to("small-device") {
@@ -57,3 +58,33 @@ header.site-header {
 	}
 }
 
+.translator {
+	position: absolute;
+	top: 120px;
+	left: 0;
+	width: 100px;
+}
+
+@media screen and (min-width: 769px) {
+	html.translated-ltr {
+		body {
+			margin-top: 42px;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	html.translated-ltr {
+		body {
+			margin-top: 42px;
+		}
+		#kd_expense_calculator_wp {
+			top: 42px;
+		}
+	}
+
+	.translator {
+		top: 80px;
+		left: 20px;
+	}
+}

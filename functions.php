@@ -1,7 +1,7 @@
 <?php
 //functions
 
-define('PLURI_VERSION', '0.3.6');
+define('PLURI_VERSION', '0.3.7');
 
 function pluri_styles() {
 	wp_enqueue_style( 'pluri_frontend', get_bloginfo('template_url') . '/public/frontend_v036.css', array(), PLURI_VERSION, 'screen' );

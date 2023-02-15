@@ -21,12 +21,19 @@
 	<nav id="main-navigation" class="collapsed">
 		<?php wp_nav_menu(array('theme_location' => 'principal'));?>
 		<?php wp_nav_menu(array('theme_location' => 'icon_links'));?>
+		
+		
 	</nav>
 	<nav id="desktop-menu">
 		<?php wp_nav_menu(array('theme_location' => 'principal'));?>
 		<?php //wp_nav_menu(array('theme_location' => 'icon_links'));?>	
 	</nav>
-	
+	<?php if(is_plugin_active('google-language-translator/google-language-translator.php')):?>
+	<div class="translator">
+		<?php echo do_shortcode('[google-translator]'); ?>
+	</div>
+	<?php endif;?>
+
 	<a title="Ver navegación" href="#main-navigation" id="toggle-menu">
 		<span></span>
 		<span></span>
