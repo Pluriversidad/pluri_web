@@ -37,7 +37,7 @@
 								<div class="image-container">
 									<?php
 									$thumbnailID = get_post_thumbnail_id($integrante->ID);
-									$thumbSrc = wp_get_attachment_image_url($thumbnailID, 'post-thumbnail');
+									$thumbSrc = wp_get_attachment_image_url($thumbnailID, 'pl_300x300');
 									?>
 									<img class="integrante-imagen" src="<?= $thumbSrc; ?>" alt="<?= $integrante->post_title; ?>">
 								</div>
