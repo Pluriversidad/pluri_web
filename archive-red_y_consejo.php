@@ -35,7 +35,11 @@
 							<a href="<?php echo get_permalink($integrante->ID); ?>">
 
 								<div class="image-container">
-									<?php echo get_the_post_thumbnail($integrante->ID,	'post-thumbnail'); ?>
+									<?php
+									$thumbnailID = get_post_thumbnail_id($integrante->ID);
+									$thumbSrc = wp_get_attachment_image_url($thumbnailID, 'thumbnail');
+									?>
+									<img src="<?= $thumbSrc; ?>" alt="<?= $integrante->post_title; ?>">
 								</div>
 
 								<h3><?php echo get_the_title($integrante->ID); ?></h3>
