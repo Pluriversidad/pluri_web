@@ -1,58 +1,57 @@
-<?php get_header();?>
+<?php get_header(); ?>
 <main id="primary" class="site-main">
-	<!--<h1 class="archive-title"><?php the_archive_title( );?></h1>-->
+	<!--<h1 class="archive-title"><?php the_archive_title(); ?></h1>-->
 
-	<?php 
+	<?php
 
-		$redcats = ['nucleo','consejo', 'red'];
+	$redcats = ['nucleo', 'consejo', 'red'];
 
-		foreach($redcats as $redcat) {
-			$args = array(
-						'post_type' 	=> 'red_y_consejo',
-						'category_name'	=> $redcat,
-						'numberposts'	=> -1
-						);
+	foreach ($redcats as $redcat) {
+		$args = array(
+			'post_type' 	=> 'red_y_consejo',
+			'category_name'	=> $redcat,
+			'numberposts'	=> -1
+		);
 
-			$integrantes = get_posts($args);
+		$integrantes = get_posts($args);
 
-			if($integrantes) {
-				$catID = get_cat_ID( $redcat );
-				$cat = get_category( $catID );
+		if ($integrantes) {
+			$catID = get_cat_ID($redcat);
+			$cat = get_category($catID);
 
-				?>
-				<div>
-				<h2 class="cat-red"><?php echo $cat->name;?></h2>
+	?>
+			<div>
+				<h2 class="cat-red"><?php echo $cat->name; ?></h2>
 				<section class="cat-red-section">
-				
 
-				<?php
 
-				foreach($integrantes as $integrante) {
-					
+					<?php
+
+					foreach ($integrantes as $integrante) {
+
 					?>
 
-					<article class="archive-item archive-item-red_y_consejo <?php echo (has_post_thumbnail($integrante->ID)? 'with-image' : 'no-image');?>">
-							<a href="<?php echo get_permalink($integrante->ID);?>">
-							
-							<div class="image-container">
-								<?php echo get_the_post_thumbnail( $integrante->ID,	'thumbnail' );?>
-							</div>
-							
-							<h3><?php echo get_the_title($integrante->ID);?></h3>
+						<article class="archive-item archive-item-red_y_consejo <?php echo (has_post_thumbnail($integrante->ID) ? 'with-image' : 'no-image'); ?>">
+							<a href="<?php echo get_permalink($integrante->ID); ?>">
+
+								<div class="image-container">
+									<?php echo get_the_post_thumbnail($integrante->ID,	'post-thumbnail'); ?>
+								</div>
+
+								<h3><?php echo get_the_title($integrante->ID); ?></h3>
 
 							</a>
 
-					</article>
+						</article>
 
 				<?php }
-
-			};?>
-			</section>
+				}; ?>
+				</section>
 			<?php
 		}
 
-	?>
-	
-</div>
+			?>
+
+			</div>
 </main>
-<?php get_footer();?>
+<?php get_footer(); ?>
