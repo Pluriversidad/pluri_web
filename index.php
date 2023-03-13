@@ -33,7 +33,7 @@
 			<div class="entry-content">
 				<?php the_content(); ?>
 
-				
+
 
 				<?php
 				//Si es un item de agenda
@@ -60,22 +60,22 @@
 					$url_limit = 30;
 					?>
 
-					<?php if($web):  ?>
+					<?php if ($web) :  ?>
 						<h3>Web</h3>
 						<div class="webs">
 							<p>
-							<a href="<?php echo $web; ?>" target="_blank"><?php echo (strlen($web) > $url_limit) ? substr($web, 0, $url_limit) . '...' : $web; ?></a>
+								<a href="<?php echo $web; ?>" target="_blank"><?php echo (strlen($web) > $url_limit) ? substr($web, 0, $url_limit) . '...' : $web; ?></a>
 							</p>
-							<?php if($web_adicional): ?>
-							<p>
-							<a href="<?php echo $web_adicional; ?>" target="_blank"><?php echo (strlen($web_adicional) > $url_limit) ? substr($web_adicional, 0, $url_limit) . '...' : $web_adicional; ?></a>
-							</p>	
-							<?php endif;?>
+							<?php if ($web_adicional) : ?>
+								<p>
+									<a href="<?php echo $web_adicional; ?>" target="_blank"><?php echo (strlen($web_adicional) > $url_limit) ? substr($web_adicional, 0, $url_limit) . '...' : $web_adicional; ?></a>
+								</p>
+							<?php endif; ?>
 
 						</div>
-					<?php endif;?>
+					<?php endif; ?>
 
-					
+
 					<?php if ($institutos) : ?>
 						<h3>Institutos</h3>
 						<div class="institutos-terms">
@@ -106,7 +106,7 @@
 </main>
 <?php
 //Si es una descripción de instituto
-if ($post->post_parent == 8 || $post->post_name == 'institutos') :
+if (isset($post) && $post->post_parent == 8 || isset($post) && $post->post_name == 'institutos') :
 	get_template_part('parts/institutos-nav');
 endif;
 ?>

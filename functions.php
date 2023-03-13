@@ -17,12 +17,33 @@ function pluri_styles()
 }
 add_action('wp_enqueue_scripts', 'pluri_styles');
 
-add_theme_support('html5');
-add_theme_support('menus');
-add_theme_support('post-thumbnails', array('post', 'page', 'calendario', 'cursos', 'cuaderno_de_notas', 'formaciones', 'red_y_consejo', 'recursos_pedagogicos'));
-add_theme_support('title-tag');
 
-add_image_size('pl_300x300', 300, 300, true);
+
+
+/**
+ * Essential theme supports
+ * */
+function pluri_theme_setup()
+{
+	/** automatic feed link*/
+	add_theme_support('automatic-feed-links');
+
+	/** tag-title **/
+	add_theme_support('title-tag');
+
+	/** post thumbnail **/
+	$post_types = get_post_types();
+	add_theme_support('post-thumbnails', array('cuaderno_de_notas', 'post', 'page', 'red_y_consejo', 'recursos_pedagogicos', 'formaciones', 'cursos'));
+
+	add_image_size('pl_300x300', 300, 300, true);
+
+	/** HTML5 support **/
+	add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
+
+	/** refresh widgets **/
+	add_theme_support('customize-selective-refresh-widgets');
+}
+add_action('after_setup_theme', 'pluri_theme_setup');
 
 register_nav_menus(
 	array(
