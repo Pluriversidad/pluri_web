@@ -22,6 +22,9 @@
 	<?php
 	echo $hora ? '<span class="hora">' . $hora . '</span>' : '';
 	echo $lugar ? '<span class="lugar">' . $lugar . '</span>' : '';
+	if ($lugar && $pais_ciudad) {
+		echo '. ';
+	};
 	echo $pais_ciudad ? '<span class="pais_ciudad">' . $pais_ciudad . '</span>' : '';
 	?>
 </div>

@@ -19,7 +19,7 @@
 		<?php
 		//Si es una página de instituto vinculada
 		//Contenidos vinculados al instituto
-		$content_types = ['calendario', 'cursos', 'cuaderno_de_notas', 'formaciones', 'red_y_consejo'];
+		$content_types = ['cursos', 'formaciones', 'cuaderno_de_notas', 'red_y_consejo', 'calendario'];
 
 		foreach ($content_types as $content_type) :
 			$args = array(
@@ -43,7 +43,7 @@
 
 				?>
 
-				<article class="list-taxonomy-items archive-type-<?php echo $content_type;?>">
+				<article class="list-taxonomy-items archive-type-<?php echo $content_type; ?>">
 					<h3><?php echo $typelabels->labels->name; ?></h3>
 
 					<ul class="archive-items-list">
@@ -51,8 +51,11 @@
 							$thumbid = get_post_thumbnail_id($item->ID);
 							$thumbnail = wp_get_attachment_image_src($thumbid, 'post_thumbnail');
 						?>
-							<li class="taxonomy-archive-item <?php echo ($content_type == 'calendario' ? 'taxonomy-archive-item-calendario' : '');?>">
-								<a href="<?php echo get_permalink($item->ID); ?>">
+							<li class="taxonomy-archive-item <?php echo ($content_type == 'calendario' ? 'taxonomy-archive-item-calendario' : ''); ?>">
+								<?php if ($content_type != 'calendario') :
+								?>
+									<a href="<?php echo get_permalink($item->ID); ?>">
+									<?php endif; ?>
 
 									<?php if ($content_type != 'calendario') {
 									?>
@@ -66,15 +69,17 @@
 									<?php }; ?>
 
 
-									
 
-									<?php if ($content_type == 'calendario') {									
+
+									<?php if ($content_type == 'calendario') {
 										get_template_part('parts/event-data', null, array('item' => $item));
-									} else {?> 
+									} else { ?>
 										<h3><?php echo $item->post_title; ?></h3>
 									<?php } ?>
-
-								</a>
+									<?php if ($content_type != 'calendario') :
+									?>
+									</a>
+								<?php endif; ?>
 							</li>
 						<?php endforeach; ?>
 					</ul>
