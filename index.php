@@ -6,12 +6,6 @@
 
 		while (have_posts()) :
 			the_post();
-
-			/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
 	?>
 
 			<header class="entry-header">
@@ -33,7 +27,11 @@
 			<div class="entry-content">
 				<?php the_content(); ?>
 
-
+				<?php
+				//Si es un curso
+				if (get_post_type() == 'cursos') :
+					get_template_part('parts/formaciones-desde-curso', null, array('cursoid' => $post->ID));
+				endif; ?>
 
 				<?php
 				//Si es un item de agenda
@@ -57,8 +55,20 @@
 					$tags = get_the_terms($post->ID, 'post_tag');
 					$web = get_field('web', $post->ID);
 					$web_adicional = get_field('web_adicional', $post->ID);
+					$cursos = get_field('cursos_vinculados', $post->ID);
 					$url_limit = 30;
 					?>
+
+					<?php if ($cursos) : ?>
+						<h3>Cursos</h3>
+						<div class="cursos">
+							<?php foreach ($cursos as $curso) : ?>
+								<p>
+									<a href="<?php echo get_permalink($curso->ID); ?>"><?= $curso->post_title; ?></a>
+								</p>
+							<?php endforeach; ?>
+						</div>
+					<?php endif; ?>
 
 					<?php if ($web) :  ?>
 						<h3>Web</h3>

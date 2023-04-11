@@ -1,12 +1,17 @@
 <?php
 //functions
 
-define('PLURI_VERSION', '0.3.7');
+define('PLURI_VERSION', '0.3.8');
 
 function pluri_styles()
 {
-	wp_enqueue_style('pluri_frontend', get_bloginfo('template_url') . '/public/frontend_v037.css', array(), PLURI_VERSION, 'screen');
-	wp_enqueue_script('pluri_js', get_bloginfo('template_url') . '/public/bundle_v037.js', array(), PLURI_VERSION, true);
+	$cssFilePath = glob(get_template_directory() . '/public/pluri.*.css');
+	$cssFileURI = get_template_directory_uri() . '/public/' . basename($cssFilePath[0]);
+	wp_enqueue_style('pluri_frontend', $cssFileURI, array(), PLURI_VERSION, 'screen');
+
+	$jsFilePath = glob(get_template_directory() . '/public/pluri.*.js');
+	$jsFileURI = get_template_directory_uri() . '/public/' . basename($jsFilePath[0]);
+	wp_enqueue_script('pluri_js', $jsFileURI, array(), PLURI_VERSION, true);
 
 	wp_localize_script('pluri_js', 'pluri', array(
 		'ajax_url' => admin_url('admin-ajax.php'),

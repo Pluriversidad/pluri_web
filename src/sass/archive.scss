@@ -81,6 +81,7 @@ article.archive-item {
         width: 100%;
         height: auto;
         margin: 0 0 12px 0;
+        object-fit: cover;
       }
     }
   }
@@ -154,5 +155,43 @@ article.archive-item {
     ul.archive-items-list li {
       width: 100%;
     }
+  }
+}
+
+.pluri-year-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  border-bottom: 1px solid black;
+  margin-bottom: 32px;
+}
+
+.pluri-cursos-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 24px;
+  .archive-item {
+    padding-top: 0;
+    margin: 0;
+  }
+  .archive-entry-content {
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 12px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+
+  }
+}
+
+.pluri-year {
+ 
+  margin-bottom: 36px;
+  &:last-of-type {
+    border-bottom: none;
   }
 }

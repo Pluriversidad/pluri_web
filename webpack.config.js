@@ -4,10 +4,10 @@ BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
 module.exports = {
 	context: __dirname,
-    entry: { frontend_v037: ["./src/index.js", "./src/sass/style.scss"] },
+    entry: { pluri: ["./src/index.js", "./src/sass/style.scss"] },
 	output: {
 		path: path.resolve(__dirname, "public"),
-		filename: "bundle_v037.js",
+		filename: "[name].[fullhash].min.js",
 		clean: true,
 	},
 	mode: "development",
@@ -31,7 +31,7 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new MiniCssExtractPlugin({ filename: "[name].css" }),
+		new MiniCssExtractPlugin({ filename: "[name].[fullhash].min.css" }),
 		new BrowserSyncPlugin({
 			files: "**/*.php",
 			injectChanges: true,
