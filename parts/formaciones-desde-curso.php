@@ -28,7 +28,7 @@ if ($cursos) {
         ?>
 
             <article class="archive-item with-image">
-                <?= get_the_post_thumbnail($curso->ID, 'post-thumbnail'); ?>
+                <?= get_the_post_thumbnail($curso->ID); ?>
                 <div class="archive-entry-content">
                     <h2><a href="<?= get_permalink($curso->ID); ?>"><?= $curso->post_title; ?></a></h2>
                     <?php if ($inicio || $fin) : ?>
