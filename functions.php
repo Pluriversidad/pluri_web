@@ -2,7 +2,7 @@
 //functions
 
 define('PLURI_VERSION', '0.3.8');
-define('PLURI_TYPES', ['cursos', 'formaciones', 'cuaderno_de_notas', 'red_y_consejo', 'calendario']);
+define('PLURI_TYPES', ['cursos', 'formaciones', 'cuaderno_de_notas', 'red_y_consejo', 'calendario', 'recursos_pedagogicos']);
 
 function pluri_styles()
 {
