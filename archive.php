@@ -40,11 +40,11 @@
 								<article>
 									<?php if (has_post_thumbnail()) : ?>
 										<div class="archive-post-thumbnail">
-											<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
+											<a href="<?php echo get_permalink($item->ID); ?>"><?php echo get_the_post_thumbnail($item->ID, 'thumbnail'); ?></a>
 										</div>
 									<?php endif; ?>
 									<?= get_field('cursos_vinculados', $item->ID) ? '<span>' . get_field('cursos_vinculados', $item->ID)[0]->post_title . '</span>' : ''; ?>
-									<h3><a href="<?php the_permalink(); ?>"><?= $item->post_title; ?></a></h3>
+									<h3><a href="<?php get_permalink($item->ID); ?>"><?= $item->post_title; ?></a></h3>
 								</article>
 							<?php
 							endforeach;
