@@ -1,81 +1,76 @@
-<?php get_header();?>
+<?php get_header(); ?>
 <main id="primary" class="site-main">
-	<h1 class="archive-title"><?php the_archive_title( );?></h1>
+	<h1 class="archive-title"><?php the_archive_title(); ?></h1>
 	<?php
-	if ( have_posts() ) :?>
+	if (have_posts()) : ?>
 
-		<div class="archive-items-wrapper">
+		<div class="pluri_bytype-archive-items-wrapper">
 
 			<?php
 
-			while ( have_posts() ) :?>
-				<article class="archive-item <?php echo (has_post_thumbnail()? 'with-image' : 'no-image');?>">
-						
-						<?php
-						the_post();
+			while (have_posts()) : ?>
 
-						/*
-						 * Include the Post-Type-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-						 */
-						?>
-						<a href="<?php the_permalink();?>">
-						<?php if(has_post_thumbnail(  ) && get_post_type() != 'calendario'):?>
 
-						<div class="archive-post-thumbnail">
-							<?php the_post_thumbnail('thumbnail');?>
+				<?php
+				the_post();
+				$content_types = PLURI_TYPES;
+				foreach ($content_types as $content_type) :
+					if ($post->post_type == $content_type) :
+						$sorted_content[$content_type][] = $post;
+					endif;
+				endforeach;
+				?>
+
+
+			<?php
+
+			endwhile; ?>
+
+			<?php
+			foreach ($content_types as $content_type) :
+				if (isset($sorted_content[$content_type])) {
+					$typeobj = get_post_type_object($content_type);
+			?>
+					<section class="pluri_archive-items pluri_archive-<?= $content_type; ?>">
+						<h2><?= $typeobj->labels->name; ?></h2>
+						<div>
+							<?php
+							foreach ($sorted_content[$content_type] as $item) :
+							?>
+								<article>
+									<?php if (has_post_thumbnail()) : ?>
+										<div class="archive-post-thumbnail">
+											<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
+										</div>
+									<?php endif; ?>
+									<?= get_field('cursos_vinculados', $item->ID) ? '<span>' . get_field('cursos_vinculados', $item->ID)[0]->post_title . '</span>' : ''; ?>
+									<h3><a href="<?php the_permalink(); ?>"><?= $item->post_title; ?></a></h3>
+								</article>
+							<?php
+							endforeach;
+							?>
 						</div>
+					</section>
+				<?php
+				}
 
-						<?php endif;?>
-						
-			
+				?>
 
-					<div class="archive-entry-content">
-						<?php if(get_post_type() != 'calendario'):?>
-							
-							<h2 class="archive-entry-title">
-								<?php the_title();?>
-							</h2>
+			<?php
+			endforeach; ?>
 
-						<?php endif;?>
-
-				
-						
-
-						<?php 
-							//Si es un item de agenda
-						
-						if(get_post_type() == 'calendario'):
-							get_template_part('parts/event-data');
-						endif;
-
-						?>
-
-						
-
-					</div>
-					
-					</a>
-	
-	</article>
+		</div>
 	<?php
+	else : ?>
 
-endwhile;?>
+		<div class="archive-items-wrapper">
+			<article class="no-content">
+				<h2 class="archive-entry-title">Esta sección aún no tiene contenido</h2>
+			</article>
+		</div>
 
-
-</div>
-<?php
-else:?>
-
-	<div class="archive-items-wrapper">
-		<article class="no-content">
-			<h2 class="archive-entry-title">Esta sección aún no tiene contenido</h2>
-		</article>
-	</div>
-
-	<?php 
-endif;
-?>
+	<?php
+	endif;
+	?>
 </main>
-<?php get_footer();?>
+<?php get_footer(); ?>
