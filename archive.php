@@ -32,7 +32,9 @@
 					$typeobj = get_post_type_object($content_type);
 			?>
 					<section class="pluri_archive-items pluri_archive-<?= $content_type; ?>">
-						<h2><?= $typeobj->labels->name; ?></h2>
+						<?php if (!is_post_type_archive()) : ?>
+							<h2><?= $typeobj->labels->name; ?></h2>
+						<?php endif; ?>
 						<div>
 							<?php
 							foreach ($sorted_content[$content_type] as $item) :
