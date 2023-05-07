@@ -19,7 +19,7 @@
 		<?php
 		//Si es una página de instituto vinculada
 		//Contenidos vinculados al instituto
-		$content_types = ['cursos', 'formaciones', 'cuaderno_de_notas', 'red_y_consejo', 'calendario'];
+		$content_types = ['cursos', 'formaciones', 'recursos_pedagogicos', 'cuaderno_de_notas', 'red_y_consejo', 'calendario'];
 
 		foreach ($content_types as $content_type) :
 			$args = array(
