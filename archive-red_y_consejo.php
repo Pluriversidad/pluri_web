@@ -33,14 +33,17 @@
 
 						<article class="archive-item archive-item-red_y_consejo <?php echo (has_post_thumbnail($integrante->ID) ? 'with-image' : 'no-image'); ?>">
 							<a href="<?php echo get_permalink($integrante->ID); ?>">
-
-								<div class="image-container">
-									<?php
-									$thumbnailID = get_post_thumbnail_id($integrante->ID);
-									$thumbSrc = wp_get_attachment_image_src($thumbnailID, 'pl_300x300');
-									?>
-									<img class="integrante-imagen" src="<?= $thumbSrc[0]; ?>" alt="<?= $integrante->post_title; ?>">
-								</div>
+								<?php if (isset($_COOKIE['pl_ver']) && $_COOKIE['pl_ver'] == 'low') : ?>
+									<div class="nothing-container"></div>
+								<?php else : ?>
+									<div class="image-container">
+										<?php
+										$thumbnailID = get_post_thumbnail_id($integrante->ID);
+										$thumbSrc = wp_get_attachment_image_src($thumbnailID, 'pl_300x300');
+										?>
+										<img class="integrante-imagen" src="<?= $thumbSrc[0]; ?>" alt="<?= $integrante->post_title; ?>">
+									</div>
+								<?php endif; ?>
 
 								<h3><?php echo get_the_title($integrante->ID); ?></h3>
 

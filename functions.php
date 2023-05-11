@@ -3,23 +3,35 @@
 
 define('PLURI_VERSION', '0.3.8');
 define('PLURI_TYPES', ['cursos', 'formaciones', 'cuaderno_de_notas', 'red_y_consejo', 'calendario', 'recursos_pedagogicos']);
+define('PLURI_VERSIONS', ['high', 'low']);
 
 function pluri_styles()
 {
+	$pl_ver = $_COOKIE['pl_ver'];
 	$cssFilePath = glob(get_template_directory() . '/public/pluri.*.css');
 	$cssFileURI = get_template_directory_uri() . '/public/' . basename($cssFilePath[0]);
 	wp_enqueue_style('pluri_frontend', $cssFileURI, array(), PLURI_VERSION, 'screen');
 
 	$jsFilePath = glob(get_template_directory() . '/public/pluri.*.js');
 	$jsFileURI = get_template_directory_uri() . '/public/' . basename($jsFilePath[0]);
-	wp_enqueue_script('pluri_js', $jsFileURI, array(), PLURI_VERSION, true);
 
-	wp_localize_script('pluri_js', 'pluri', array(
-		'ajax_url' => admin_url('admin-ajax.php'),
-		'home_url' => home_url(),
-		'nonce' => wp_create_nonce('pluri_nonce'),
-		'tags'	=> get_tags(),
-	));
+	if (!isset($pl_ver) || $pl_ver === 'high') {
+
+		wp_enqueue_script('pluri_js', $jsFileURI, array(), PLURI_VERSION, true);
+
+
+		wp_localize_script('pluri_js', 'pluri', array(
+			'ajax_url' => admin_url('admin-ajax.php'),
+			'home_url' => home_url(),
+			'nonce' => wp_create_nonce('pluri_nonce'),
+			'tags'	=> get_tags(),
+		));
+	}
+	if ($pl_ver == 'low') {
+		wp_dequeue_script('kd_graph');
+		wp_dequeue_style('kd_graph');
+		wp_dequeue_script('jquery');
+	}
 }
 add_action('wp_enqueue_scripts', 'pluri_styles');
 
@@ -91,3 +103,44 @@ function pluri_custom_mime_types($mimes)
 }
 
 add_filter('upload_mimes', 'pluri_custom_mime_types');
+
+function pluri_get_versions()
+{
+	//Stores a cookie with the current site version
+	if (!isset($_COOKIE['pl_ver'])) {
+		setcookie('pl_ver', 'high', HOUR_IN_SECONDS, "*", "");
+		return 'high';
+	} else {
+		return $_COOKIE['pl_ver'];
+	}
+}
+
+
+function pluri_set_versions()
+{
+	if (isset($_GET['pl_ver'])) :
+		$version = $_GET['pl_ver'];
+		setcookie('pl_ver', $version, time() + 606024 * 30);
+	endif;
+}
+
+add_action("init", "pluri_set_versions");
+
+
+function pluri_filter_for_ver()
+{
+	$pl_ver = isset($_COOKIE['pl_ver']) ? $_COOKIE['pl_ver'] : null;
+
+	if ($pl_ver == 'low') {
+		add_filter('post_thumbnail_html', 'pluri_filter_images', 10, 5);
+	}
+}
+
+add_action("init", "pluri_filter_for_ver", 10, 0);
+
+function pluri_filter_images($html, $post_id, $post_thumbnail_id, $size, $attr)
+{
+	$html = '<!-- Pluriversidad Nómada en gasto energético bajo -->';
+
+	return $html;
+}

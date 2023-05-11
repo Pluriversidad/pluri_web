@@ -46,7 +46,7 @@
 										</div>
 									<?php endif; ?>
 									<?= get_field('cursos_vinculados', $item->ID) ? '<span>' . get_field('cursos_vinculados', $item->ID)[0]->post_title . '</span>' : ''; ?>
-									<h3><a href="<?php get_permalink($item->ID); ?>"><?= $item->post_title; ?></a></h3>
+									<h3><a href="<?php echo get_permalink($item->ID); ?>"><?= $item->post_title; ?></a></h3>
 								</article>
 							<?php
 							endforeach;

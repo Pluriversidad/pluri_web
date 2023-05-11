@@ -3,7 +3,6 @@
 //import round from "./round.js";
 import TagCloud from "./vendor/TagCloud.js";
 
-
 //navigation
 const nav = document.querySelector("#main-navigation");
 const toggleMenu = document.querySelector("#toggle-menu");
@@ -35,17 +34,14 @@ toggleSubMenuDesktop.forEach(function (el) {
     let parentLi = el.parentElement;
     let others = document.querySelectorAll("li.active");
 
-    
-
     if (parentLi.classList.contains("active")) {
       parentLi.classList.remove("active");
     } else {
       parentLi.classList.add("active");
-      
+
       for (let i = 0; i < others.length; i++) {
         others[i].classList.remove("active");
       }
-      
     }
   });
 });
@@ -80,3 +76,9 @@ if (document.querySelector(cloudContainer)) {
 
   console.log(tags);
 }
+
+const energySelect = document.getElementById("pl_set_energy_cookie");
+
+const cookieSetters = energySelect.querySelectorAll("li");
+const url = pluri.ajax_url;
+cookieSetters.forEach((cookieSetter) => {});

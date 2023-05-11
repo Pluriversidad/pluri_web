@@ -60,7 +60,7 @@
 									<?php if ($content_type != 'calendario') {
 									?>
 
-										<?php if (has_post_thumbnail($item->ID)) : ?>
+										<?php if (has_post_thumbnail($item->ID) && $_COOKIE['pl_ver'] == 'high' || has_post_thumbnail($item->ID) && !$_COOKIE['pl_ver']) : ?>
 											<img src="<?php echo $thumbnail[0]; ?>" alt="<?php echo $item->post_title; ?>">
 										<?php else : ?>
 											<div class="img-placeholder"></div>
