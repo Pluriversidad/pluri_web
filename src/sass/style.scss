@@ -18,31 +18,29 @@ $large_sidebar_width: 15%;
 $medium_sidebar_width: 30%;
 $sidebar_width: 30%;
 
-
 //Borde general de la web en escritorio
 $horizontal_padding: 60px;
 $mobile_horizontal_padding: 24px;
 $large_horizontal_padding: 120px;
 
-
 //Reset tipográfico
 :root {
-	--system-ui: "Calibri", "Roboto", "Helvetica", system-ui, "Arial",
-		"Liberation Sans", sans-serif;
+  --system-ui: "Calibri", "Roboto", "Helvetica", system-ui, "Arial",
+    "Liberation Sans", sans-serif;
 }
 
 html {
-	@include fluid-type($min_width, $max_width, $min_font, $max_font);
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
 }
 
 //Font-stack genérico
 body {
-	font-family: var(--system-ui);
+  font-family: var(--system-ui);
 }
 
 //Por alguna razón el strong no cambia el peso en este stack tipográfico
 strong {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 //Títulos de todo el sitio
@@ -66,132 +64,150 @@ strong {
 
 //Cosas aún sin clasificar
 main {
-	padding: 120px $horizontal_padding;
-	max-width: 1400px;
-	margin: auto;
-	overflow: hidden;
-	@include respond-to("xl-device") {
-		max-width: 1400px;
-		margin: auto;
-	}
+  padding: 120px $horizontal_padding;
+  max-width: 1400px;
+  margin: auto;
+  overflow: hidden;
+  @include respond-to("xl-device") {
+    max-width: 1400px;
+    margin: auto;
+  }
 
-	@include respond-to("small-device") {
-		padding: 120px $mobile_horizontal_padding 120px $mobile_horizontal_padding;	
-	}
+  @include respond-to("small-device") {
+    padding: 120px $mobile_horizontal_padding 120px $mobile_horizontal_padding;
+  }
 
-	&.with-institutos-nav {
-		padding: 120px calc($horizontal_padding + 24px + $sidebar_width) 120px $horizontal_padding;
-	}
+  &.with-institutos-nav {
+    padding: 120px calc($horizontal_padding + 24px + $sidebar_width) 120px
+      $horizontal_padding;
+  }
 }
 
 .home main {
-	padding: 0;
-	@include respond-to("small-device") {
-		padding: 120px 24px 24px 24px;
-	}
+  padding: 0;
+  @include respond-to("small-device") {
+    padding: 120px 24px 24px 24px;
+  }
 }
 
 .hidden {
-	display: none;
+  display: none;
 }
 
 .site-footer {
-	text-align: left;
-	font-size: 24px;
-	padding: 24px $horizontal_padding;
-	margin-top: 100px;
-	padding-top: 100px;
-	border-top: 1px solid black;
-	clear: both;
-	p {
-		margin-bottom: 12px;
-	}
+  text-align: left;
+  font-size: 24px;
+  padding: 24px $horizontal_padding;
+  margin-top: 100px;
+  padding-top: 100px;
+  border-top: 1px solid black;
+  clear: both;
+  p {
+    margin-bottom: 12px;
+  }
 
-	img {
-		max-width: 120px;
-		height: auto;
-		margin-bottom: 12px;
-	}
+  img {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 12px;
+  }
 
-	.apoyo {
-		margin-top: 120px;
-	}
+  .apoyo {
+    margin-top: 120px;
+  }
 
-	a {
-		color: black;
-		text-decoration: none;
-		&:hover {
-			text-decoration: underline;
-		}	
-	}
-	@include respond-to("small-device") {
-		padding: 24px;
-		border-top: 1px solid black;
-		font-size: 18px;
-	}
+  a {
+    color: black;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  @include respond-to("small-device") {
+    padding: 24px;
+    border-top: 1px solid black;
+    font-size: 18px;
+  }
 }
 
 .enconstruccion {
-	position: fixed;
-	background-color: rgba(255, 255, 255, 0.8);
-	right: 0;
-	bottom: 0;
-	padding: 6px;
-	font-size: 12px;
-	a {
-		color: #333;
-		text-decoration: none;
-	}
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.8);
+  right: 0;
+  bottom: 0;
+  padding: 6px;
+  font-size: 12px;
+  a {
+    color: #333;
+    text-decoration: none;
+  }
 }
 
 .pluri-tag-cloud {
-	margin:24px auto;
-	display: flex;
-	justify-content: center;
-	@include respond-to("small-device") {
-		max-width: 100%;
-		overflow: hidden;
-	}
-	span {
-		font-weight: bold;
-		cursor: pointer;
-		transition: all ease-in-out 0.3s;
-		&:hover {
-			text-decoration: underline;
-		}
-	}
+  margin: 24px auto;
+  display: flex;
+  justify-content: center;
+  @include respond-to("small-device") {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  span {
+    font-weight: bold;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-
-
 .home-section {
-	display: flex;
-	.description {
-		padding: 72px 72px 36px 0;
-		line-height: 1.2;
-		font-size: 22px;
-	}
+  display: flex;
+  .description {
+    padding: 72px 72px 36px 0;
+    line-height: 1.2;
+    font-size: 22px;
+  }
 
-	@include respond-to("small-device") {
-		display: block;
-		.description {
-			padding: 24px;
-			font-size: 16px;
-			display: none;
-		}
-	}
+  @include respond-to("small-device") {
+    display: block;
+    .description {
+      padding: 24px;
+      font-size: 16px;
+      display: none;
+    }
+  }
 
-	@media screen and (min-width: 1200px) {
-		.description {
-			font-size: 22px;
-			padding-left: 60px;
-		}
-	}
+  @media screen and (min-width: 1200px) {
+    .description {
+      font-size: 22px;
+      padding-left: 60px;
+    }
+  }
 
-	@media screen and (min-width: 1367px) {
-		.description {
-			font-size: 24px;
-			padding-left: 0;
-		}
-	}
+  @media screen and (min-width: 1367px) {
+    .description {
+      font-size: 24px;
+      padding-left: 0;
+    }
+  }
+}
+
+.pluri_financiamiento {
+  text-align: center;
+  border-top: 1px solid black;
+  padding-top: 24px;
+  h3 {
+    font-size: 22px;
+  }
+  > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    img {
+      max-width: 200px;
+      height: auto;
+    }
+  }
 }

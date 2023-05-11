@@ -57,5 +57,20 @@
 			?>
 
 			</div>
+			<?php
+			$args = array(
+				'post_type' 	=> 'page',
+				'meta_query'    =>  array(
+					array(
+						'key' 	=> '_wp_page_template',
+						'value'	=> 'page-template-financiamiento.php'
+					)
+				)
+			);
+			$financiamiento = get_posts($args)[0];
+			if ($financiamiento) :
+				get_template_part('page-template-financiamiento', null, array('content' => $financiamiento));
+			endif;
+			?>
 </main>
 <?php get_footer(); ?>
