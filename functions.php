@@ -15,7 +15,7 @@ function pluri_styles()
 	$jsFilePath = glob(get_template_directory() . '/public/pluri.*.js');
 	$jsFileURI = get_template_directory_uri() . '/public/' . basename($jsFilePath[0]);
 
-	if (!isset($pl_ver) || $pl_ver === 'high') {
+	if (!isset($_GET['pl_ver']) || isset($_GET['pl_ver']) && $_GET['pl_ver'] == 'high') {
 
 		wp_enqueue_script('pluri_js', $jsFileURI, array(), PLURI_VERSION, true);
 
@@ -27,7 +27,7 @@ function pluri_styles()
 			'tags'	=> get_tags(),
 		));
 	}
-	if ($pl_ver == 'low') {
+	if (isset($_GET['pl_ver']) && $_GET['pl_ver'] == 'low') {
 		wp_dequeue_script('kd_graph');
 		wp_dequeue_style('kd_graph');
 		wp_dequeue_script('jquery');
@@ -129,7 +129,7 @@ add_action("init", "pluri_set_versions");
 
 function pluri_filter_for_ver()
 {
-	$pl_ver = isset($_COOKIE['pl_ver']) ? $_COOKIE['pl_ver'] : null;
+	$pl_ver = isset($_GET['pl_ver']) ? $_GET['pl_ver'] : null;
 
 	if ($pl_ver == 'low') {
 		add_filter('post_thumbnail_html', 'pluri_filter_images', 10, 5);

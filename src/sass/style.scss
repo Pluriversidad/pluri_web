@@ -193,27 +193,6 @@ main {
   }
 }
 
-.pluri_energy-section {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  padding: 12px;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 100;
-  color: white;
-  li {
-    cursor: pointer;
-    a {
-      color: white;
-    }
-    &.active {
-      a {
-        font-weight: 700;
-      }
-    }
-  }
-}
-
 html#pluri_version-low {
   background-color: black;
   *,
@@ -272,5 +251,34 @@ html#pluri_version-low {
     opacity: 1;
     border: 1px solid black;
     max-height: none;
+  }
+
+  .nav-institutos {
+    margin-top: 100px;
+  }
+  .instituto {
+    background-color: black;
+  }
+
+  #kd-graph {
+    display: none;
+  }
+
+  .pluri_low-tag-cloud {
+    margin-top: 60px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px;
+    border: 1px dashed white;
+    a {
+      text-decoration: none;
+      display: inline-block;
+      margin: 6px;
+      font-size: 14px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

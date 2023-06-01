@@ -8,17 +8,40 @@
 	<div class="apoyo">
 		<p>Este proyecto cuenta con el apoyo de Fundación Daniel y Nina Carasso</p>
 	</div>
-	<div class="pluri_energy-section">
-		<ul id="pl_set_energy_cookie">
-			<li data-pl_ver="high" class="<?= $_COOKIE['pl_ver'] == 'high' || !isset($_COOKIE['pl_ver']) ? 'active' : 'default'; ?>"><a href=" <?php echo add_query_arg(array('pl_ver' => 'high')); ?>">Consumo energético alto</a></li>
-			<li data-pl_ver="low" class="<?= $_COOKIE['pl_ver'] == 'low' ? 'active' : 'default'; ?>"><a href=" <?php echo add_query_arg(array('pl_ver' => 'low')); ?>">Consumo energético bajo</a></li>
-		</ul>
-	</div>
+
 	<div class="enconstruccion">
 		Sitio en construcción <a href="https://github.com/pabloselin/pluri_web">v.<?php echo PLURI_VERSION; ?></a>
 	</div>
 </footer>
 <?php wp_footer(); ?>
+<script>
+	function findGetParameter(parameterName) {
+		var result = null,
+			tmp = [];
+		location.search
+			.substr(1)
+			.split("&")
+			.forEach(function(item) {
+				tmp = item.split("=");
+				if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+			});
+		return result;
+	}
+
+	var plVer = findGetParameter('pl_ver');
+	console.log(plVer);
+	if (plVer == 'low') {
+		var links = document.querySelectorAll('a');
+		links.forEach((link) => {
+			link.addEventListener("click", function(e) {
+				var oldhref = link.getAttribute('href');
+				link.setAttribute('href', `${oldhref}?pl_ver=low`);
+			});
+
+
+		});
+	}
+</script>
 </body>
 
 </html>
