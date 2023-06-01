@@ -80,6 +80,21 @@ function tag_filter($query)
 }
 add_action('pre_get_posts', 'tag_filter');
 
+function pluri_modify_calendar_order($query)
+{
+	if (is_admin()) {
+		return $query;
+	}
+
+	if (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'calendario') {
+		$query->set('orderby', 'meta_value');
+		$query->set('meta_key', 'fecha_inicio');
+	}
+	return $query;
+}
+
+add_action('pre_get_posts', 'pluri_modify_calendar_order');
+
 function pluri_custom_mime_types($mimes)
 {
 

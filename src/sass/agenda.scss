@@ -1,40 +1,47 @@
 article.archive-item.archive-item-calendario,
-.taxonomy-archive-item-calendario
-{
-	border-bottom: 1px solid black;
-	padding-top: 24px;
-	padding-bottom: 24px;
-	width: 100%;
-	align-items: flex-start;
-	@include fullwidth;
-	span.date {
-		font-weight: bold;
-	}
-	a.event-name,
-	span.event-name {
-		text-decoration: none;
-		color: black;
-		display: inline-block;
-		&:before, &:after {
-			content: " | ";
-			font-weight: normal;
-			font-style: normal;
-		}
-	}
+.taxonomy-archive-item-calendario {
+  border-bottom: 1px solid black;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+  align-items: flex-start;
+  @include fullwidth;
+  span.date {
+    font-weight: bold;
+  }
+  a.event-name,
+  span.event-name {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    &:before,
+    &:after {
+      content: " | ";
+      font-weight: normal;
+      font-style: normal;
+    }
+  }
 
-	a.event-name {
-		font-weight: bold;
-		font-style: oblique;
-		&:hover {
-			text-decoration: underline;
-			font-style: oblique;
-		}
-	}
+  a.event-name {
+    font-weight: bold;
+    font-style: oblique;
+    &:hover {
+      text-decoration: underline;
+      font-style: oblique;
+    }
+  }
 }
 
 .taxonomy-archive-item-calendario {
-	border: 0;
-	.date, .pais_ciudad {
-		font-weight: normal !important;
-	}
+  border: 0;
+  .date,
+  .pais_ciudad {
+    font-weight: normal !important;
+  }
+}
+
+.taxonomy-items {
+  li.taxonomy-archive-item.taxonomy-archive-item-calendario {
+    margin-bottom: 12px;
+  }
 }

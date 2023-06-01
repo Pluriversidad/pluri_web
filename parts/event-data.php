@@ -8,6 +8,7 @@
 	$inicio	 		= get_field('fecha_inicio', $itemid, true);
 	$fin		 	= get_field('fecha_fin', $itemid, true);
 	$hora		 	= get_field('hora', $itemid, true);
+	$link_lugar		= get_field('link_lugar', $itemid, true);
 
 
 	?>
@@ -15,15 +16,19 @@
 
 	<span class="date"><?php echo $inicio; ?> <?php echo $fin ? ' - ' . $fin : ''; ?></span>
 	<?php if ($link) : ?>
-		<a class="event-name" href="<?php echo $link; ?>"><?php echo $post->post_title; ?></a>
+		<a class="event-name" href="<?php echo $link; ?>"><?php echo ($args ? $args['item']->post_title : $post->post_title); ?></a>
 	<?php else : ?>
 		<span class="event-name"><?php echo ($args ? $args['item']->post_title : $post->post_title); ?></span>
 	<?php endif; ?>
 	<?php
-	echo $hora ? '<span class="hora">' . $hora . '</span>' : '';
-	echo $lugar ? '<span class="lugar">' . $lugar . '</span>' : '';
+	echo $hora ? ' <span class="hora">' . $hora . '</span>' : '';
+	if ($link_lugar && $lugar) :
+		echo '<a class="link-lugar" href="' . $link_lugar . '">' . $lugar . '</a>';
+	else :
+		echo $lugar ? ' <span class="lugar">' . $lugar . '</span>' : '';
+	endif;
 	if ($lugar && $pais_ciudad) {
-		echo '. ';
+		echo ', ';
 	};
 	echo $pais_ciudad ? '<span class="pais_ciudad">' . $pais_ciudad . '</span>' : '';
 	?>
