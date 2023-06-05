@@ -9,8 +9,6 @@
 	$fin		 	= get_field('fecha_fin', $itemid, true);
 	$hora		 	= get_field('hora', $itemid, true);
 	$link_lugar		= get_field('link_lugar', $itemid, true);
-
-
 	?>
 
 
