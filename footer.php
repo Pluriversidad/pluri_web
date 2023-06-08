@@ -5,10 +5,6 @@
 		<p>Instagram: <a href="https://instagram.com/pluriversidadnomada">@pluriversidadnomada</a></p>
 	</address>
 
-	<div class="apoyo">
-		<p>Este proyecto cuenta con el apoyo de Fundación Daniel y Nina Carasso</p>
-	</div>
-
 	<div class="enconstruccion">
 		Sitio en construcción <a href="https://github.com/pabloselin/pluri_web">v.<?php echo PLURI_VERSION; ?></a>
 	</div>
@@ -41,6 +37,31 @@
 
 		});
 	}
+
+	//navigation
+	const nav = document.querySelector("#main-navigation");
+	const toggleMenu = document.querySelector("#toggle-menu");
+	const toggleSubMenuDesktop = document.querySelectorAll(
+		"#desktop-menu li.menu-item-has-children > a"
+	);
+
+	let isMobile = false;
+	if (screen.width <= 768) {
+		isMobile = true;
+	}
+
+	nav.classList.add("collapsed");
+
+	toggleMenu.addEventListener("click", function(e) {
+		e.preventDefault();
+		if (nav.classList.contains("collapsed")) {
+			nav.classList.remove("collapsed");
+			toggleMenu.classList.add("active");
+		} else {
+			nav.classList.add("collapsed");
+			toggleMenu.classList.remove("active");
+		}
+	});
 </script>
 </body>
 

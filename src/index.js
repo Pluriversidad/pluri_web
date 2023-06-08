@@ -3,30 +3,30 @@
 //import round from "./round.js";
 import TagCloud from "./vendor/TagCloud.js";
 
-//navigation
-const nav = document.querySelector("#main-navigation");
-const toggleMenu = document.querySelector("#toggle-menu");
+// //navigation
+// const nav = document.querySelector("#main-navigation");
+// const toggleMenu = document.querySelector("#toggle-menu");
 const toggleSubMenuDesktop = document.querySelectorAll(
   "#desktop-menu li.menu-item-has-children > a"
 );
 
-let isMobile = false;
-if (screen.width <= 768) {
-  isMobile = true;
-}
+// let isMobile = false;
+// if (screen.width <= 768) {
+//   isMobile = true;
+// }
 
-nav.classList.add("collapsed");
+// nav.classList.add("collapsed");
 
-toggleMenu.addEventListener("click", function (e) {
-  e.preventDefault();
-  if (nav.classList.contains("collapsed")) {
-    nav.classList.remove("collapsed");
-    toggleMenu.classList.add("active");
-  } else {
-    nav.classList.add("collapsed");
-    toggleMenu.classList.remove("active");
-  }
-});
+// toggleMenu.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   if (nav.classList.contains("collapsed")) {
+//     nav.classList.remove("collapsed");
+//     toggleMenu.classList.add("active");
+//   } else {
+//     nav.classList.add("collapsed");
+//     toggleMenu.classList.remove("active");
+//   }
+// });
 
 toggleSubMenuDesktop.forEach(function (el) {
   el.addEventListener("click", function (e) {
@@ -81,4 +81,3 @@ const energySelect = document.getElementById("pl_set_energy_cookie");
 
 const cookieSetters = energySelect.querySelectorAll("li");
 const url = pluri.ajax_url;
-cookieSetters.forEach((cookieSetter) => {});

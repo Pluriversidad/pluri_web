@@ -3,11 +3,11 @@
 $cursoid = $args['cursoid'];
 
 $args = array(
-    'post_type'     => 'formaciones',
-    'numberposts'   => -1,
-    'orderby'       => 'meta_value',
-    'order'         => 'ASC',
-    'key'           => 'fecha_inicio_formacion',
+    'post_type'         => 'formaciones',
+    'numberposts'       => -1,
+    'orderby'           => 'meta_value_num',
+    'order'             => 'DESC',
+    'meta_key'          => 'fecha_inicio_formacion',
     'meta_query'    => array(
         array(
             'key'        => 'cursos_vinculados',

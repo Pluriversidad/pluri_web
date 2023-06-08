@@ -7,7 +7,6 @@ define('PLURI_VERSIONS', ['high', 'low']);
 
 function pluri_styles()
 {
-	$pl_ver = $_COOKIE['pl_ver'];
 	$cssFilePath = glob(get_template_directory() . '/public/pluri.*.css');
 	$cssFileURI = get_template_directory_uri() . '/public/' . basename($cssFilePath[0]);
 	wp_enqueue_style('pluri_frontend', $cssFileURI, array(), PLURI_VERSION, 'screen');
@@ -107,12 +106,7 @@ add_filter('upload_mimes', 'pluri_custom_mime_types');
 function pluri_get_versions()
 {
 	//Stores a cookie with the current site version
-	if (!isset($_COOKIE['pl_ver'])) {
-		setcookie('pl_ver', 'high', HOUR_IN_SECONDS, "*", "");
-		return 'high';
-	} else {
-		return $_COOKIE['pl_ver'];
-	}
+	return $_GET['pl_ver'];
 }
 
 
@@ -143,4 +137,18 @@ function pluri_filter_images($html, $post_id, $post_thumbnail_id, $size, $attr)
 	$html = '<!-- Pluriversidad Nómada en gasto energético bajo -->';
 
 	return $html;
+}
+
+
+function pluri_url_builder($version)
+{
+	$actual_version = isset($_GET['pl_ver']) ? $_GET['pl_ver'] : null;
+	//strip query strings
+	$clean_url = get_bloginfo('url') . strtok($_SERVER["REQUEST_URI"], '?');
+	if ($actual_version == $version) {
+		return $clean_url;
+	} else {
+		$new_url = add_query_arg('pl_ver', $version, $clean_url);
+		return esc_url($new_url);
+	}
 }

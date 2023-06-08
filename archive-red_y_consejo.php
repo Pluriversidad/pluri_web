@@ -33,7 +33,7 @@
 
 						<article class="archive-item archive-item-red_y_consejo <?php echo (has_post_thumbnail($integrante->ID) ? 'with-image' : 'no-image'); ?>">
 							<a href="<?php echo get_permalink($integrante->ID); ?>">
-								<?php if (isset($_COOKIE['pl_ver']) && $_COOKIE['pl_ver'] == 'low') : ?>
+								<?php if (isset($_GET['pl_ver']) && $_GET['pl_ver'] == 'low') : ?>
 									<div class="nothing-container"></div>
 								<?php else : ?>
 									<div class="image-container">
