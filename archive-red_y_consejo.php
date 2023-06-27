@@ -10,7 +10,9 @@
 		$args = array(
 			'post_type' 	=> 'red_y_consejo',
 			'category_name'	=> $redcat,
-			'numberposts'	=> -1
+			'numberposts'	=> -1,
+			'orderby'		=> 'post_title',
+			'order'			=> 'ASC'
 		);
 
 		$integrantes = get_posts($args);

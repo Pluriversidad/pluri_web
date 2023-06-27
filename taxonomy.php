@@ -33,6 +33,10 @@
 					)
 				)
 			);
+			if ($content_type == 'red_y_consejo') {
+				$args['orderby'] = 'post_title';
+				$args['order']	 = 'ASC';
+			}
 
 			$items = get_posts($args);
 

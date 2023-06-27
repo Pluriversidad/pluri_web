@@ -2,7 +2,7 @@
 	<?php
 	//var_dump($args['item']->ID);
 	$itemid 		= $args ? $args['item']->ID : $post->ID;
-	$link  	 		= get_field('enlace_principal', $itemid, true);
+	$link  	 		= get_field('enlace_principal', $itemid, true) ? get_field('enlace_principal', $itemid, true) : '';
 	$lugar			= get_field('lugar', $itemid,  true);
 	$pais_ciudad 	= get_field('ciudad_pais', $itemid, true);
 	$inicio	 		= get_field('fecha_inicio', $itemid, true);
@@ -15,7 +15,7 @@
 
 	<span class="date"><?php echo $inicio; ?> <?php echo $fin ? ' - ' . $fin : ''; ?></span>
 	<?php if ($link) : ?>
-		<a class="event-name" href="<?php echo $link; ?>"><?php echo $post->post_title; ?></a>
+		<a class="event-name" href="<?php echo $link; ?>"><?php echo ($args ? $args['item']->post_title : $post->post_title); ?></a>
 	<?php else : ?>
 		<span class="event-name"><?php echo ($args ? $args['item']->post_title : $post->post_title); ?></span>
 	<?php endif; ?>

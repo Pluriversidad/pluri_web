@@ -243,3 +243,10 @@ article.archive-item {
     height: auto;
   }
 }
+
+article.archive-item.past-course {
+  opacity: 0.6;
+  img {
+    filter: grayscale(0.8);
+  }
+}

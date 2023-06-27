@@ -1,7 +1,7 @@
 <?php
 //functions
 
-define('PLURI_VERSION', '0.3.8');
+define('PLURI_VERSION', '0.3.9');
 define('PLURI_TYPES', ['cursos', 'formaciones', 'cuaderno_de_notas', 'red_y_consejo', 'calendario', 'recursos_pedagogicos']);
 define('PLURI_VERSIONS', ['high', 'low']);
 
@@ -151,4 +151,16 @@ function pluri_url_builder($version)
 		$new_url = add_query_arg('pl_ver', $version, $clean_url);
 		return esc_url($new_url);
 	}
+}
+
+add_action('pre_get_posts', 'pluri_calendario_order');
+
+function pluri_calendario_order($query)
+{
+	//Forces order in calendario items
+	// if (is_post_type_archive('calendario')) {
+	// 	$query->set('orderby', 'meta_value');
+	// 	$query->set('meta_key', 'fecha_inicio');
+	// 	$query->set('meta_type', 'DATETIME');
+	// }
 }
