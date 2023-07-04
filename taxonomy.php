@@ -36,6 +36,10 @@
 			if ($content_type == 'red_y_consejo') {
 				$args['orderby'] = 'post_title';
 				$args['order']	 = 'ASC';
+			} elseif ($content_type == 'calendario') {
+				$args['orderby'] = 'meta_value';
+				$args['order']	 = 'DESC';
+				$args['meta_key'] = 'fecha_inicio';
 			}
 
 			$items = get_posts($args);
