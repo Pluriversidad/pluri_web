@@ -151,7 +151,7 @@ article.archive-item {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 24px;
   .archive-item {
     padding-top: 0;
@@ -162,6 +162,10 @@ article.archive-item {
       font-size: 1.4rem;
       margin-top: 12px;
     }
+  }
+
+  article.archive-item.with-image {
+    align-items: flex-start;
   }
 
   @media screen and (max-width: 768px) {
