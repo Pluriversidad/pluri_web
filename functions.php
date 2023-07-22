@@ -1,7 +1,7 @@
 <?php
 //functions
 
-define('PLURI_VERSION', '0.3.9');
+define('PLURI_VERSION', '0.4.0');
 define('PLURI_TYPES', ['cursos', 'formaciones', 'cuaderno_de_notas', 'red_y_consejo', 'calendario', 'recursos_pedagogicos']);
 define('PLURI_VERSIONS', ['high', 'low']);
 

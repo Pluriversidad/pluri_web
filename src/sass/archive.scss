@@ -249,8 +249,11 @@ article.archive-item {
 }
 
 article.archive-item.past-course {
-  opacity: 0.6;
+  //opacity: 0.6;
   img {
-    filter: grayscale(0.8);
+    //filter: grayscale(0.8);
+  }
+  .archive-entry-content {
+    opacity: 0.6;
   }
 }
