@@ -38,3 +38,5 @@ El diseño gráfico está a cargo de Felipe Román. La interpretación en HTML /
 ## Licencia
 
 Todo el código se encuentra bajo una licencia GNU GPL3
+
+

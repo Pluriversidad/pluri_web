@@ -2,7 +2,7 @@
 	<?php
 	//var_dump($args['item']->ID);
 	$itemid 		= $args ? $args['item']->ID : $post->ID;
-	$link  	 		= get_field('enlace_principal', $itemid, true);
+	$link  	 		= get_field('enlace_principal', $itemid, true) ? get_field('enlace_principal', $itemid, true) : '';
 	$lugar			= get_field('lugar', $itemid,  true);
 	$pais_ciudad 	= get_field('ciudad_pais', $itemid, true);
 	$inicio	 		= get_field('fecha_inicio', $itemid, true);

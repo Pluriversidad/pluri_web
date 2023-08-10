@@ -1,26 +1,31 @@
 article.archive-item.archive-item-calendario,
-.taxonomy-archive-item-calendario {
-  border-bottom: 1px solid black;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  width: 100%;
-  align-items: flex-start;
-  @include fullwidth;
-  span.date {
-    font-weight: bold;
-  }
-  a.event-name,
-  span.event-name {
-    text-decoration: none;
-    color: black;
-    display: inline-block;
-    &:before,
-    &:after {
-      content: " | ";
-      font-weight: normal;
-      font-style: normal;
-    }
-  }
+.taxonomy-archive-item-calendario,
+body.archive.tag .event-data
+{
+	border-bottom: 1px solid black;
+	padding-top: 24px;
+	padding-bottom: 24px;
+	width: 100%;
+	align-items: flex-start;
+	@include fullwidth;
+	span.date {
+		font-weight: bold;
+	}
+	span.lugar {
+		display: inline-block;
+		margin-left: 12px;
+	}
+	a.event-name,
+	span.event-name {
+		text-decoration: none;
+		color: black;
+		display: inline-block;
+		&:before, &:after {
+			content: " | ";
+			font-weight: normal;
+			font-style: normal;
+		}
+	}
 
   a.event-name {
     font-weight: bold;
@@ -33,15 +38,12 @@ article.archive-item.archive-item-calendario,
 }
 
 .taxonomy-archive-item-calendario {
-  border: 0;
-  .date,
-  .pais_ciudad {
-    font-weight: normal !important;
-  }
+	border: 0;
+	.date, .pais_ciudad {
+		font-weight: normal !important;
+	}
 }
 
-.taxonomy-items {
-  li.taxonomy-archive-item.taxonomy-archive-item-calendario {
-    margin-bottom: 12px;
-  }
+body.archive.tag .event-data {
+	border-bottom: 0;
 }

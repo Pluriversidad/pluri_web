@@ -1,0 +1,123 @@
+html#pluri_version-low {
+  background-color: black;
+  *,
+  a,
+  p,
+  ul,
+  li,
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #f0f0f0 !important;
+    font-family: monospace !important;
+    font-weight: normal !important;
+  }
+
+  header {
+    background-color: black;
+    ul {
+      li {
+        a {
+          color: white;
+          background-color: black !important;
+          font-size: 18px !important;
+        }
+      }
+    }
+  }
+
+  img {
+    display: none !important;
+    visibility: hidden;
+  }
+
+  article.archive-item.archive-item-red_y_consejo .image-container {
+    display: none;
+  }
+
+  .archive-post-thumbnail {
+    display: none;
+  }
+
+  .site-title {
+    a {
+      font-size: 24px;
+      text-decoration: none;
+      color: black;
+      max-width: 200px;
+      display: block;
+      padding-top: 24px;
+    }
+  }
+
+  nav#desktop-menu div ul li.menu-item-has-children ul.sub-menu {
+    display: block;
+    opacity: 1;
+    border: 1px solid black;
+    max-height: none;
+  }
+
+  .nav-institutos {
+    margin-top: 100px;
+  }
+  .instituto {
+    background-color: black;
+  }
+
+  #kd-graph {
+    display: none;
+  }
+
+  .pluri_low-tag-cloud {
+    margin-top: 60px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px;
+    border: 1px dashed white;
+    a {
+      text-decoration: none;
+      display: inline-block;
+      margin: 6px;
+      font-size: 14px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+//Mobile pluri low
+html#pluri_version-low {
+  @media screen and (max-width: 768px) {
+    h1.site-title {
+      a {
+        padding: 12px;
+      }
+    }
+
+    a#toggle-menu {
+      padding: 12px;
+      span {
+        background-color: black;
+        border: 1px solid white;
+        &:nth-of-type(2n) {
+          display: none;
+        }
+      }
+    }
+
+    nav#main-navigation {
+      background-color: black;
+    }
+
+    .enconstruccion {
+      background-color: black;
+      color: white;
+    }
+    .entry-content a {
+      background-color: #333;
+    }
+  }
+}

@@ -40,13 +40,19 @@
 							foreach ($sorted_content[$content_type] as $item) :
 							?>
 								<article>
-									<?php if (has_post_thumbnail()) : ?>
-										<div class="archive-post-thumbnail">
-											<a href="<?php echo get_permalink($item->ID); ?>"><?php echo get_the_post_thumbnail($item->ID, 'thumbnail'); ?></a>
-										</div>
-									<?php endif; ?>
-									<?= get_field('cursos_vinculados', $item->ID) ? '<span>' . get_field('cursos_vinculados', $item->ID)[0]->post_title . '</span>' : ''; ?>
-									<h3><a href="<?php get_permalink($item->ID); ?>"><?= $item->post_title; ?></a></h3>
+									<?php if (get_post_type($item->ID) == 'calendario') {
+										get_template_part('parts/event-data', null, array('item' => $item));
+									} else {
+									?>
+										<?php if (has_post_thumbnail()) : ?>
+											<div class="archive-post-thumbnail">
+												<a href="<?php echo get_permalink($item->ID); ?>"><?php echo get_the_post_thumbnail($item->ID, 'thumbnail'); ?></a>
+											</div>
+										<?php endif; ?>
+										<?= get_field('cursos_vinculados', $item->ID) ? '<span>' . get_field('cursos_vinculados', $item->ID)[0]->post_title . '</span>' : ''; ?>
+										<h3><a href="<?php echo get_permalink($item->ID); ?>"><?= $item->post_title; ?></a></h3>
+									<?php
+									}; ?>
 								</article>
 							<?php
 							endforeach;

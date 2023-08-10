@@ -151,7 +151,7 @@ article.archive-item {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 24px;
   .archive-item {
     padding-top: 0;
@@ -162,6 +162,10 @@ article.archive-item {
       font-size: 1.4rem;
       margin-top: 12px;
     }
+  }
+
+  article.archive-item.with-image {
+    align-items: flex-start;
   }
 
   @media screen and (max-width: 768px) {
@@ -241,5 +245,15 @@ article.archive-item {
   @include respond-to("small-device") {
     width: 100%;
     height: auto;
+  }
+}
+
+article.archive-item.past-course {
+  //opacity: 0.6;
+  img {
+    //filter: grayscale(0.8);
+  }
+  .archive-entry-content {
+    opacity: 0.6;
   }
 }

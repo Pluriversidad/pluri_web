@@ -14,6 +14,59 @@
 	</div>
 </footer>
 <?php wp_footer(); ?>
+<script>
+	function findGetParameter(parameterName) {
+		var result = null,
+			tmp = [];
+		location.search
+			.substr(1)
+			.split("&")
+			.forEach(function(item) {
+				tmp = item.split("=");
+				if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+			});
+		return result;
+	}
+
+	var plVer = findGetParameter('pl_ver');
+	console.log(plVer);
+	if (plVer == 'low') {
+		var links = document.querySelectorAll('a');
+		links.forEach((link) => {
+			link.addEventListener("click", function(e) {
+				var oldhref = link.getAttribute('href');
+				link.setAttribute('href', `${oldhref}?pl_ver=low`);
+			});
+
+
+		});
+	}
+
+	//navigation
+	const nav = document.querySelector("#main-navigation");
+	const toggleMenu = document.querySelector("#toggle-menu");
+	const toggleSubMenuDesktop = document.querySelectorAll(
+		"#desktop-menu li.menu-item-has-children > a"
+	);
+
+	let isMobile = false;
+	if (screen.width <= 768) {
+		isMobile = true;
+	}
+
+	nav.classList.add("collapsed");
+
+	toggleMenu.addEventListener("click", function(e) {
+		e.preventDefault();
+		if (nav.classList.contains("collapsed")) {
+			nav.classList.remove("collapsed");
+			toggleMenu.classList.add("active");
+		} else {
+			nav.classList.add("collapsed");
+			toggleMenu.classList.remove("active");
+		}
+	});
+</script>
 </body>
 
 </html>
