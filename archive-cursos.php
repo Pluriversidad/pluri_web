@@ -24,7 +24,7 @@
                     <?php if (has_post_thumbnail() && get_post_type() != 'calendario') : ?>
 
                         <div class="archive-post-thumbnail">
-                            <?php the_post_thumbnail('thumbnail'); ?>
+                            <a href="<?php the_permalink();?>"><?php the_post_thumbnail('thumbnail'); ?></a>
                         </div>
 
                     <?php endif; ?>

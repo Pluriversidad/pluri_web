@@ -32,7 +32,7 @@ if ($cursos) {
         ?>
 
             <article class="archive-item with-image <?= $end < $today ? 'past-course' : 'upcoming'; ?>">
-                <?= get_the_post_thumbnail($curso->ID, 'thumbnail'); ?>
+                <a href="<?php echo get_permalink($curso->ID);?>"><?= get_the_post_thumbnail($curso->ID, 'thumbnail'); ?></a>
                 <div class="archive-entry-content">
                     <h2><a href="<?= get_permalink($curso->ID); ?>"><?= $curso->post_title; ?></a></h2>
                     <?php if ($inicio || $fin) : ?>
