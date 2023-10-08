@@ -44,7 +44,7 @@
 										get_template_part('parts/event-data', null, array('item' => $item));
 									} else {
 									?>
-										<?php if (has_post_thumbnail()) : ?>
+										<?php if (has_post_thumbnail($item->ID)) : ?>
 											<div class="archive-post-thumbnail">
 												<a href="<?php echo get_permalink($item->ID); ?>"><?php echo get_the_post_thumbnail($item->ID, 'thumbnail'); ?></a>
 											</div>

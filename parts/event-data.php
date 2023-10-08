@@ -19,11 +19,11 @@
 		<span class="event-name"><?php echo ($args ? $args['item']->post_title : $post->post_title); ?></span>
 	<?php endif; ?>
 	<?php
-	echo $hora ? ' <span class="hora">' . $hora . '</span>' : '';
+	echo $hora ? ' <span class="hora">' . $hora . '</span> ' : '';
 	if ($link_lugar && $lugar) :
 		echo '<a class="link-lugar" href="' . $link_lugar . '">' . $lugar . '</a>';
 	else :
-		echo $lugar ? ' <span class="lugar">' . $lugar . '</span>' : '';
+		echo $lugar ? '<span class="lugar">' . $lugar . '</span>' : '';
 	endif;
 	if ($lugar && $pais_ciudad) {
 		echo ', ';

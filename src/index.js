@@ -1,32 +1,10 @@
-//import assetData from "../data/compilation-stats.json";
-//import { co2 } from "@tgwf/co2";
-//import round from "./round.js";
-import TagCloud from "./vendor/TagCloud.js";
 
+import TagCloud from "./vendor/TagCloud.js";
+import activateGalleries from "./galleries.js";
 // //navigation
-// const nav = document.querySelector("#main-navigation");
-// const toggleMenu = document.querySelector("#toggle-menu");
 const toggleSubMenuDesktop = document.querySelectorAll(
   "#desktop-menu li.menu-item-has-children > a"
 );
-
-// let isMobile = false;
-// if (screen.width <= 768) {
-//   isMobile = true;
-// }
-
-// nav.classList.add("collapsed");
-
-// toggleMenu.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   if (nav.classList.contains("collapsed")) {
-//     nav.classList.remove("collapsed");
-//     toggleMenu.classList.add("active");
-//   } else {
-//     nav.classList.add("collapsed");
-//     toggleMenu.classList.remove("active");
-//   }
-// });
 
 toggleSubMenuDesktop.forEach(function (el) {
   el.addEventListener("click", function (e) {
@@ -46,7 +24,7 @@ toggleSubMenuDesktop.forEach(function (el) {
   });
 });
 
-//console.log(nav);
+
 
 //tag cloud
 const cloudContainer = ".pluri-tag-cloud";
@@ -81,3 +59,7 @@ const energySelect = document.getElementById("pl_set_energy_cookie");
 
 const cookieSetters = energySelect.querySelectorAll("li");
 const url = pluri.ajax_url;
+
+//Start galleries
+
+activateGalleries();

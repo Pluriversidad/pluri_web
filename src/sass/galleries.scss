@@ -1,0 +1,27 @@
+@import '../../node_modules/swiper/swiper.scss';
+@import 'glightbox.scss';
+
+$gallery-height: 420px;
+
+.swiper-slide {
+  backface-visibility: hidden;
+}
+
+.swiper-container {
+	margin: 24px 0;
+	height: $gallery-height;
+	width: 100%;
+	.swiper-slide {
+		display: flex;
+		align-items: center;
+		width: auto;
+		a {
+			display: block;
+			height: $gallery-height;
+		}
+		img {
+			height: $gallery-height;
+			width: auto;
+		}
+	}
+}

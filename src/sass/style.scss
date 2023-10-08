@@ -62,6 +62,9 @@ strong {
 @import "agenda.scss";
 @import "red_y_consejo.scss";
 
+//Galleries
+@import "galleries.scss";
+
 @import "lowdef/pluri_low";
 
 //Cosas aún sin clasificar
@@ -195,22 +198,4 @@ main {
   }
 }
 
-.pluri_financiamiento {
-  text-align: center;
-  border-top: 1px solid black;
-  padding-top: 24px;
-  h3 {
-    font-size: 22px;
-  }
-  > div > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    img {
-      max-width: 200px;
-      height: auto;
-    }
-  }
-}
 
