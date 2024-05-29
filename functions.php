@@ -1,8 +1,8 @@
 <?php
 //functions
 
-define('PLURI_VERSION', '0.4.2');
-define('PLURI_TYPES', ['cursos', 'formaciones', 'cuaderno_de_notas', 'red_y_consejo', 'calendario', 'recursos_pedagogicos']);
+define('PLURI_VERSION', '0.4.3');
+define('PLURI_TYPES', ['cursos', 'formaciones', 'cuaderno_de_notas', 'red_y_consejo', 'calendario', 'recursos_pedagogicos', 'publicaciones']);
 define('PLURI_VERSIONS', ['high', 'low']);
 
 function pluri_styles()
@@ -50,7 +50,7 @@ function pluri_theme_setup()
 
 	/** post thumbnail **/
 	$post_types = get_post_types();
-	add_theme_support('post-thumbnails', array('cuaderno_de_notas', 'post', 'page', 'red_y_consejo', 'recursos_pedagogicos', 'formaciones', 'cursos'));
+	add_theme_support('post-thumbnails', array('cuaderno_de_notas', 'post', 'page', 'red_y_consejo', 'recursos_pedagogicos', 'formaciones', 'cursos', 'publicaciones'));
 
 	add_image_size('pl_300x300', 300, 300, true);
 
@@ -181,67 +181,68 @@ function pluri_calendario_order($query)
 }
 
 add_filter('post_gallery', 'pluri_galleries', 10, 2);
-function pluri_galleries($output, $attr) {
-    global $post;
+function pluri_galleries($output, $attr)
+{
+	global $post;
 
-    if (isset($attr['orderby'])) {
-        $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
-        if (!$attr['orderby'])
-            unset($attr['orderby']);
-    }
+	if (isset($attr['orderby'])) {
+		$attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
+		if (!$attr['orderby'])
+			unset($attr['orderby']);
+	}
 
-    extract(shortcode_atts(array(
-        'order' => 'ASC',
-        'orderby' => 'menu_order ID',
-        'id' => $post->ID,
-        'itemtag' => 'dl',
-        'icontag' => 'dt',
-        'captiontag' => 'dd',
-        'columns' => 3,
-        'size' => 'large',
-        'include' => '',
-        'exclude' => ''
-    ), $attr));
+	extract(shortcode_atts(array(
+		'order' => 'ASC',
+		'orderby' => 'menu_order ID',
+		'id' => $post->ID,
+		'itemtag' => 'dl',
+		'icontag' => 'dt',
+		'captiontag' => 'dd',
+		'columns' => 3,
+		'size' => 'large',
+		'include' => '',
+		'exclude' => ''
+	), $attr));
 
-    $id = intval($id);
-    if ('RAND' == $order) $orderby = 'none';
+	$id = intval($id);
+	if ('RAND' == $order) $orderby = 'none';
 
-    if (!empty($include)) {
-        $include = preg_replace('/[^0-9,]+/', '', $include);
-        $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+	if (!empty($include)) {
+		$include = preg_replace('/[^0-9,]+/', '', $include);
+		$_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
 
-        $attachments = array();
-        foreach ($_attachments as $key => $val) {
-            $attachments[$val->ID] = $_attachments[$key];
-        }
-    }
+		$attachments = array();
+		foreach ($_attachments as $key => $val) {
+			$attachments[$val->ID] = $_attachments[$key];
+		}
+	}
 
-    if (empty($attachments)) return '';
+	if (empty($attachments)) return '';
 
-    // Here's your actual output, you may customize it to your need
-    $output = "<div class=\"swiper-container\">\n";
-    $output .= "<div class=\"swiper-wrapper\">\n";
-    
+	// Here's your actual output, you may customize it to your need
+	$output = "<div class=\"swiper-container\">\n";
+	$output .= "<div class=\"swiper-wrapper\">\n";
 
-    // Now you loop through each attachment
-    foreach ($attachments as $id => $attachment) {
-        // Fetch the thumbnail (or full image, it's up to you)
-        $img = wp_get_attachment_image_src($id, 'large');
-        $link = wp_get_attachment_image_src($id, 'large');
-        $output .= "<div class=\"swiper-slide\">\n";
-        $output .= "<a href=\"{$link[0]}\">";
-        $output .= "<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />\n";
-        $output .= "</a>";
-        $output .= "</div>\n";
-    }
 
-    
-    $output .= "</div>\n";
-    $output .= "<!-- Add Pagination -->\n";
-    $output .= "<div class=\"swiper-pagination\"></div>\n";
-    $output .= "<!-- Add Arrows -->";
-    $output .= "<div class=\"swiper-button-next\"></div>\n";
-    $output .= "<div class=\"swiper-button-prev\"></div>\n";
-    $output .= "</div>\n";
-    return $output;
+	// Now you loop through each attachment
+	foreach ($attachments as $id => $attachment) {
+		// Fetch the thumbnail (or full image, it's up to you)
+		$img = wp_get_attachment_image_src($id, 'large');
+		$link = wp_get_attachment_image_src($id, 'large');
+		$output .= "<div class=\"swiper-slide\">\n";
+		$output .= "<a href=\"{$link[0]}\">";
+		$output .= "<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />\n";
+		$output .= "</a>";
+		$output .= "</div>\n";
+	}
+
+
+	$output .= "</div>\n";
+	$output .= "<!-- Add Pagination -->\n";
+	$output .= "<div class=\"swiper-pagination\"></div>\n";
+	$output .= "<!-- Add Arrows -->";
+	$output .= "<div class=\"swiper-button-next\"></div>\n";
+	$output .= "<div class=\"swiper-button-prev\"></div>\n";
+	$output .= "</div>\n";
+	return $output;
 }

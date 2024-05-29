@@ -4,26 +4,25 @@
 
 	<?php
 
-	$redcats = ['nucleo', 'consejo', 'red'];
+	$redcats = [20, 21, 22];
 
 	foreach ($redcats as $redcat) {
 		$args = array(
 			'post_type' 	=> 'red_y_consejo',
-			'category_name'	=> $redcat,
+			'cat'	=> $redcat,
 			'numberposts'	=> -1,
 			'orderby'		=> 'name',
-			'order'			=> 'ASC'
+			'order'			=> 'ASC',
 		);
 
 		$integrantes = get_posts($args);
 
 		if ($integrantes) {
-			$catID = get_cat_ID($redcat);
-			$cat = get_category($catID);
+			$cat = get_category($redcat);
 
 	?>
 			<div>
-				<h2 class="cat-red"><?php echo $cat->name; ?></h2>
+				<h2 class="cat-red"><?php echo $cat->cat_name; ?></h2>
 				<section class="cat-red-section">
 
 
